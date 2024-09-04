@@ -145,6 +145,7 @@ textarea.formField {
 .contactLine {
   padding-left: 45px;
   font-style: italic;
+  line-height: 2;
 }
 
 .addressContent {
