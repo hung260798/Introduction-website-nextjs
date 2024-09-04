@@ -1,8 +1,13 @@
-import Image from "next/image";
-import Contact from "@/components/Contact";
+import Home from "@/components/Home";
+import styles from "./page.module.css"
+import Services from "@/components/Services";
 
-export default function Home() {
+
+export default function Main() {
   return (
-    <Contact />
+    <div className={styles.app}>
+      <Home />
+      <Services />
+    </div>
   );
 }
