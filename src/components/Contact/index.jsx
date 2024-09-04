@@ -40,12 +40,12 @@ export default function Contact() {
     <section className={`${open_sans.className} ${styles.root}`}>
       <div className={`container ${styles.resize} ${styles.container}`}>
         <div
-          className={`title-area text-center mb-4 mt-4 ${raleway.className}`}
+          className={`section-title-area text-center mb-4 mt-4 ${raleway.className}`}
         >
-          <div className={`${styles.sectionSubtitle} `}>
+          <div className={`section-subtitle `}>
             #{t("subtitle").toUpperCase()}
           </div>
-          <h2 className={`mt-2 ${styles.sectionTitle} `}>
+          <h2 className={`mt-2 section-title `}>
             {t("title")?.toUpperCase()}
           </h2>
         </div>
