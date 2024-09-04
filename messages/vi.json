@@ -1,0 +1,111 @@
+{
+    "HomePage": {
+        "title": "Chúng tôi chuyên biến đổi các doanh nghiệp trong hầu hết các lĩnh vực chính bằng các giải pháp kỹ thuật số mạnh mẽ và linh hoạt, đáp ứng các nhu cầu của thời đại hiện tại.",
+        "links": [
+            "Dịch vụ",
+            "Liên hệ"
+        ]
+    },
+    "About": {
+        "subtitle": "công ty chúng tôi",
+        "title": "Giới thiệu",
+        "description": [
+            "Chúng tôi cung cấp những giải pháp sáng tạo cho khách hàng trên toàn thế giới,",
+            "mang đến sự xuất sắc trong mọi khía cạnh của công việc, từ phát triển đến dịch vụ khách hàng",
+            "và trở thành công ty đi đầu trong lĩnh vực phần mềm."
+        ],
+        "items": [
+            {
+                "title": "Luôn đổi mới",
+                "text": "Công ty đánh giá cao việc liên tục tìm kiếm các giải pháp mới và sáng tạo để đáp ứng nhu cầu của khách hàng và luôn dẫn đầu trong ngành công nghiệp phần mềm đang thay đổi nhanh chóng."
+            },
+            {
+                "title": "Chăm sóc khách hàng",
+                "text": "Công ty ưu tiên hiểu và đáp ứng nhu cầu của khách hàng, liên tục cung cấp các sản phẩm và dịch vụ vượt quá mong đợi của họ."
+            },
+            {
+                "title": "Cải tiến liên tục",
+                "text": "Công ty coi trọng văn hóa học hỏi và cải tiến liên tục, khuyến khích nhân viên không ngừng trưởng thành và phát triển các kỹ năng của họ, đồng thời liên tục cải tiến các quy trình, sản phẩm và dịch vụ của mình."
+            },
+            {
+                "title": "Tầm nhìn",
+                "text": "Cải tiến các doanh nghiệp và cá nhân trên toàn cầu bằng cách cung cấp các giải pháp phần mềm sáng tạo, thân thiện với người dùng giúp đơn giản hóa và nâng cao hoạt động hàng ngày của họ, đồng thời không ngừng cải thiện cuộc sống và trải nghiệm của khách hàng, nhân viên và cộng đồng."
+            },
+            {
+                "title": "Sứ mệnh",
+                "text": "Sứ mệnh của chúng tôi là cung cấp các giải pháp phần mềm sáng tạo, lấy người dùng làm trung tâm, đáp ứng nhu cầu của khách hàng và cải thiện trải nghiệm của họ. Chúng tôi cố gắng tạo ra tác động tích cực trên thế giới thông qua các sản phẩm của mình đồng thời thúc đẩy văn hóa không ngừng học hỏi, hợp tác và đa dạng trong công ty của chúng tôi."
+            }
+        ]
+    },
+    "Services": {
+        "subtitle": "chúng tôi cung cấp",
+        "title": "Dịch vụ",
+        "description": [
+            "Chúng tôi cung cấp các dịch vụ phát triển web, di động, doanh nghiệp và gia công phần mềm",
+            "để giúp khách hàng đạt được mục tiêu kinh doanh của họ."
+        ],
+        "items": [
+            {
+                "title": "web development",
+                "description": "Chúng tôi thiết kế, xây dựng và bảo trì các hệ thống web cho khách hàng, cung cấp các dịch vụ phát triển phần mềm, lưu trữ, tối ưu hóa và bảo mật. Các dịch vụ phát triển web của chúng tôi nhằm mục đích giúp khách hàng thiết lập sự hiện diện trực tuyến mạnh mẽ để hỗ trợ các mục tiêu kinh doanh của họ."
+            },
+            {
+                "title": "mobile development",
+                "description": "Chúng tôi thiết kế, xây dựng và bảo trì các ứng dụng di động cho nền tảng di động iOS và Android. Các dịch vụ của chúng tôi bao gồm các tính năng như thông báo, tích hợp mạng xã hội và thương mại điện tử trong các ứng dụng. Chúng tôi cũng cung cấp tính năng tối ưu hóa và bảo mật để đảm bảo trải nghiệm người dùng liền mạch và an toàn trên thiết bị di động của khách hàng."
+            },
+            {
+                "title": "enterprise development",
+                "description": "Chúng tôi xây dựng và bảo trì các ứng dụng phần mềm quan trọng, quy mô lớn dành cho các doanh nghiệp, cung cấp khả năng mở rộng, bảo mật và tự động hóa quy trình kinh doanh. Các dịch vụ phát triển phầm mềm doanh nghiệp của chúng tôi nhằm mục đích giúp khách hàng đạt được các mục tiêu kinh doanh thông qua triển khai các dịch vụ đám mây, tích hợp với các hệ thống doanh nghiệp khác cũng như hỗ trợ và bảo trì liên tục."
+            },
+            {
+                "title": "outsourcing development",
+                "description": "Chúng tôi xây dựng và bảo trì các ứng dụng phần mềm từ xa cho các doanh nghiệp, tuân thủ các yêu cầu và thời hạn của khách hàng. Các dịch vụ gia công phần mềm của chúng tôi giúp khách hàng giảm chi phí, tăng hiệu quả và đạt được các mục tiêu kinh doanh của họ."
+            }
+        ]
+    },
+    "Technologies": {
+        "subtitle": "our technologies",
+        "title": "Công nghệ",
+        "description": [
+            "Nhằm đáp ứng nhu cầu ngày càng đa dạng của khách hàng,",
+            "BKHIGHTECH luôn học hỏi và áp dụng những công nghệ mới nhất và tối ưu nhất.",
+            "-"
+        ],
+        "items": [
+            "server-side",
+            "client-side",
+            "khác"
+        ]
+    },
+    "Customers": {
+        "subtitle": "khách hàng của chúng tôi",
+        "title": "Khách hàng",
+        "description": "Công ty chúng tôi phục vụ một loạt các khách hàng và cam kết cung cấp các sản phẩm và dịch vụ đặc biệt."
+    },
+    "Team": {
+        "subtitle": "đội ngũ của chúng tôi",
+        "title": "Thành viên",
+        "description": [
+            "Công ty chúng tôi có các chuyên gia tư vấn CNTT giàu kinh nghiệm, những người cung cấp lời khuyên và hướng dẫn chất lượng cho khách hàng về các vấn đề liên quan đến công nghệ khác nhau để giúp họ đạt được các mục tiêu kinh doanh của mình.",
+            "Bên cạnh đó, chúng tôi có một đội ngũ kỹ sư phần mềm giàu kinh nghiệm cung cấp dịch vụ phát triển phần mềm chất lượng cho khách hàng."
+        ]
+    },
+    "Contact": {
+        "subtitle": "liên hệ với chúng tôi",
+        "title": "Thông tin liên lạc",
+        "content": [
+            "Chúng tôi là một công ty phần mềm chuyên cung cấp các giải pháp phần mềm cho các doanh nghiệp thuộc mọi quy mô. Với các nhà phát triển giàu kinh nghiệm, chúng tôi có thể giúp bạn tạo ra giải pháp hoàn hảo để phù hợp với nhu cầu kinh doanh của bạn.",
+            "Chúng tôi cung cấp nhiều loại dịch vụ, bao gồm phát triển web và di động, thiết kế cơ sở dữ liệu, v.v. Liên lạc với chúng tôi hôm nay để bắt đầu!"
+        ],
+        "form": {
+            "labels": {
+                "name": "Họ và tên",
+                "firstName": "Tên",
+                "lastName": "Họ",
+                "email": "Email",
+                "commentOrMessage": "Nội dung"
+            },
+            "submitButton": "Gửi"
+        }
+    }
+}
