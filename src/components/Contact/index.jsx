@@ -6,8 +6,10 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.css";
 import logoPic from "/public/images/Techno7.png";
+import { useTranslations } from 'next-intl';
 
 export default function Contact() {
+  const t = useTranslations("Contact");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -41,10 +43,10 @@ export default function Contact() {
           className={`title-area text-center mb-4 mt-4 ${raleway.className}`}
         >
           <div className={`${styles.sectionSubtitle} `}>
-            #contact us
+            #{t("subtitle")}
           </div>
           <h2 className={`mt-2 ${styles.sectionTitle} `}>
-            get in touch
+          {t("title")}
           </h2>
         </div>
 
@@ -58,7 +60,7 @@ export default function Contact() {
               <div className="form-field-container">
                 <div className="w-auto mb-3 mt-3">
                   <label htmlFor="" className={`${styles.formLabel}`}>
-                    name
+                    {t("form.labels.name")}
                     <span className={`${styles.requireLabel}`}>*</span>
                   </label>
                   <div className="row">
@@ -80,7 +82,7 @@ export default function Contact() {
                         htmlFor="firstName"
                         className={`${styles.formLabel}`}
                       >
-                        first
+                        {t("form.labels.firstName")}
                       </label>
                     </div>
                     <div className="col-sm-6">
@@ -101,7 +103,7 @@ export default function Contact() {
                         htmlFor="lastName"
                         className={`${styles.formLabel}`}
                       >
-                        last
+                        {t("form.labels.lastName")}
                       </label>
                     </div>
                   </div>
@@ -109,7 +111,7 @@ export default function Contact() {
 
                 <div className="w-auto mb-3">
                   <label htmlFor="email" className={`${styles.formLabel}`}>
-                    email
+                    {t("form.labels.email")}
                     <span className={`${styles.requireLabel}`}>*</span>
                   </label>
                   <input
@@ -129,7 +131,7 @@ export default function Contact() {
 
                 <div>
                   <label htmlFor="message" className={`${styles.formLabel}`}>
-                    comment or message
+                    {t("form.labels.commentOrMessage")}
                     <span className={`${styles.requireLabel}`}>*</span>
                   </label>
                   <textarea
@@ -155,7 +157,7 @@ export default function Contact() {
                     e.preventDefault();
                   }}
                 >
-                  submit
+                    {t("form.submitButton")}
                 </button>
               </div>
             </form>
@@ -178,8 +180,8 @@ export default function Contact() {
             </p>
 
             <div className="content">
-              <p>We are a software company that specializes in creating custom software solutions for businesses of all sizes. Our team of experienced developers can help you create the perfect solution to fit your business needs.</p>
-              <p>We offer a wide range of services, including web and mobile development, database design, and more. Contact us today to get started!</p>
+              <p>{t("content.0")}</p>
+              <p>{t("content.1")}</p>
             </div>
 
             <br />
