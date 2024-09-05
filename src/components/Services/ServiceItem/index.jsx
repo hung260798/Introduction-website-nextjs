@@ -2,14 +2,16 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.css"
 import { useInViewPort, isInViewPortPartially as inViewPortChecker } from "@/hooks/viewport";
+import { useDeviceType } from "@/hooks/device";
 
 export default function ServiceItem({ image, title, content, classNames }) {
   const elemRef = useRef(null);
   const isInViewPort = useInViewPort({elemRef, inViewPortChecker});
+  const isDesktop = useDeviceType() === "Desktop";
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
-    if (isInViewPort) {
+    if (isInViewPort && isDesktop) {
       setIsAnimating(true);
     }
   }, [isInViewPort]);
