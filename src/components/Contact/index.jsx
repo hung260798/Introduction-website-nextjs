@@ -1,6 +1,7 @@
 "use client";
+import React from 'react'
 import { useDeviceType } from "@/hooks/device";
-import { useInViewPort } from "@/hooks/viewport";
+import { useInViewPort, isInViewPortPartially as inViewPortChecker } from "@/hooks/viewport";
 import { open_sans, raleway } from "@/utils/fonts";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -20,14 +21,10 @@ export default function Contact() {
   const [isAnimating, setIsAnimating] = useState(false);
   const isInViewPort = useInViewPort({elemRef, inViewPortChecker});
   const isDesktop = useDeviceType() === "Desktop";
-  const animationDuration = 1000;
+  // const animationDuration = 1000;
 
   function animationEndHandler() {
     setIsAnimating(false);
-  }
-
-  function inViewPortChecker({top, bottom, wHeight}) {
-    return (0 < top && top < wHeight) || (0 < bottom && bottom < wHeight);
   }
 
   useEffect(() => {

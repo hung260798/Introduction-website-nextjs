@@ -40,3 +40,11 @@ export function useInViewPort({
 
   return isInViewPort;
 }
+
+export function isInViewPortPartially({top, bottom, wHeight}) {
+  return (0 < top && top < wHeight) || (0 < bottom && bottom < wHeight);
+}
+
+export function isInViewPortFully({top,bottom,wHeight}) {
+  return (0 < top && top < wHeight) && (0 < bottom && bottom < wHeight);
+}
