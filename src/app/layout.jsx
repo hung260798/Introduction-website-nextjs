@@ -17,12 +17,6 @@ export default function RootLayout({ children }) {
       <Head>
         <title>One Page App</title>
         <meta name="description" content="One Page Application using Next.js and Bootstrap" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-            integrity="sha384-DyZv1W4G2vF4q1Fz7Zc9iH0n3h3ae2m0g4f3f3W3C2n3P1hYl0vzzPzG5Xw6hE"
-            crossOrigin="anonymous"
-          />
       </Head>
 
       <body className={inter.className}>
