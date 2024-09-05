@@ -1,9 +1,9 @@
-import "./styles.modules.css";
+import styles from "./styles.module.css";
 
 export default function Header() {
     return (
-        <div id="header" className="fixed-top">
-            <nav className="navbar navbar-expand-lg navbar-light">
+        <div className={`${styles.header} fixed-top`}>
+            <nav className="navbar navbar-expand-lg navbar-light shadow-sm">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#">
                         <img src="/images/Techno7.png" alt="Logo" width="auto" height="36px" className="d-inline-block align-text-top" />

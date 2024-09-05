@@ -1,13 +1,7 @@
 "use client";
-import { useDeviceType } from "@/hooks/device";
-import { useInViewPort } from "@/hooks/viewport";
-import { open_sans, raleway } from "@/utils/fonts";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import "./styles.modules.css";
-import logoPic from "/public/images/Techno7.png";
+import styles from "./styles.module.css"
 
-// pages/services.js
 
 export default function Services() {
     const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -37,10 +31,10 @@ export default function Services() {
 
     return (
         <section id="services">
-            <div className="container my-5">
-                <h2 className="text-center section-subtitle">#WHAT WE DO</h2>
-                <h1 className="text-center mb-4 section-title">SERVICES</h1>
-                <p className="text-center mb-5 section-desc">
+            <div className={`container my-5 ${styles.services_wrapper}`}>
+                <h2 className={`text-center ${styles.section_subtitle}`}>#WHAT WE DO</h2>
+                <h1 className={`text-center mb-4 ${styles.section_title}`}>SERVICES</h1>
+                <p className={`text-center mb-5 ${styles.section_desc}`}>
                     We offer web, mobile, enterprise, and outsourcing development services to help clients achieve their business goals.
                 </p>
 
@@ -48,17 +42,17 @@ export default function Services() {
                     {services.map((service, index) => (
                         <div className="col-md-12 mb-4" key={index}>
                             <div
-                                className={`service border-0`}
+                                className={`${styles.service} border-0`}
                                 onMouseEnter={() => setHoveredIndex(index)}
                                 onMouseLeave={() => setHoveredIndex(null)}
                             >
-                                <div className="service-body">
-                                    <div className="service-icon-wrapper">
-                                        <i className={`${service.icon} fa-7x service-icon`}></i>
+                                <div className={styles.service_body}>
+                                    <div className={styles.service_icon_wrapper}>
+                                        <i className={`${service.icon} fa-7x ${styles.service_icon}`}></i>
                                     </div>
-                                    <div className="service-content">
-                                        <h4 className="service-title">{service.title}</h4>
-                                        <p className="service-text">{service.description}</p>
+                                    <div className={styles.service_content}>
+                                        <h4 className={styles.service_title}>{service.title}</h4>
+                                        <p className={styles.service_text}>{service.description}</p>
                                     </div>
                                 </div>
                             </div>
