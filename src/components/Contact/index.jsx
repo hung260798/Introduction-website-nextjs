@@ -1,12 +1,13 @@
 "use client";
+import React from 'react'
 import { useDeviceType } from "@/hooks/device";
-import { useInViewPort } from "@/hooks/viewport";
+import { useInViewPort, isInViewPortPartially as inViewPortChecker } from "@/hooks/viewport";
 import { open_sans, raleway } from "@/utils/fonts";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.css";
 import logoPic from "/public/images/Techno7.png";
-import { useTranslations } from 'next-intl';
 
 export default function Contact() {
   const t = useTranslations("Contact");
@@ -20,14 +21,10 @@ export default function Contact() {
   const [isAnimating, setIsAnimating] = useState(false);
   const isInViewPort = useInViewPort({elemRef, inViewPortChecker});
   const isDesktop = useDeviceType() === "Desktop";
-  const animationDuration = 1000;
+  // const animationDuration = 1000;
 
   function animationEndHandler() {
     setIsAnimating(false);
-  }
-
-  function inViewPortChecker({top, bottom, wHeight}) {
-    return (0 < top && top < wHeight) || (0 < bottom && bottom < wHeight);
   }
 
   useEffect(() => {
@@ -40,13 +37,13 @@ export default function Contact() {
     <section className={`${open_sans.className} ${styles.root}`}>
       <div className={`container ${styles.resize} ${styles.container}`}>
         <div
-          className={`title-area text-center mb-4 mt-4 ${raleway.className}`}
+          className={`section-title-area text-center mb-4 mt-4 ${raleway.className}`}
         >
-          <div className={`${styles.sectionSubtitle} `}>
-            #{t("subtitle")}
+          <div className={`section-subtitle `}>
+            #{t("subtitle").toUpperCase()}
           </div>
-          <h2 className={`mt-2 ${styles.sectionTitle} `}>
-          {t("title")}
+          <h2 className={`mt-2 section-title `}>
+            {t("title")?.toUpperCase()}
           </h2>
         </div>
 
@@ -60,7 +57,7 @@ export default function Contact() {
               <div className="form-field-container">
                 <div className="w-auto mb-3 mt-3">
                   <label htmlFor="" className={`${styles.formLabel}`}>
-                    {t("form.labels.name")}
+                    {t("form.labels.name").toUpperCase() + " "}
                     <span className={`${styles.requireLabel}`}>*</span>
                   </label>
                   <div className="row">
@@ -82,7 +79,7 @@ export default function Contact() {
                         htmlFor="firstName"
                         className={`${styles.formLabel}`}
                       >
-                        {t("form.labels.firstName")}
+                        {t("form.labels.firstName").toUpperCase()}
                       </label>
                     </div>
                     <div className="col-sm-6">
@@ -103,7 +100,7 @@ export default function Contact() {
                         htmlFor="lastName"
                         className={`${styles.formLabel}`}
                       >
-                        {t("form.labels.lastName")}
+                        {t("form.labels.lastName").toUpperCase()}
                       </label>
                     </div>
                   </div>
@@ -111,7 +108,7 @@ export default function Contact() {
 
                 <div className="w-auto mb-3">
                   <label htmlFor="email" className={`${styles.formLabel}`}>
-                    {t("form.labels.email")}
+                    {t("form.labels.email").toUpperCase() + " "}
                     <span className={`${styles.requireLabel}`}>*</span>
                   </label>
                   <input
@@ -131,7 +128,7 @@ export default function Contact() {
 
                 <div>
                   <label htmlFor="message" className={`${styles.formLabel}`}>
-                    {t("form.labels.commentOrMessage")}
+                    {t("form.labels.commentOrMessage").toUpperCase() + " "}
                     <span className={`${styles.requireLabel}`}>*</span>
                   </label>
                   <textarea
@@ -157,7 +154,7 @@ export default function Contact() {
                     e.preventDefault();
                   }}
                 >
-                    {t("form.submitButton")}
+                  {t("form.submitButton").toUpperCase()}
                 </button>
               </div>
             </form>

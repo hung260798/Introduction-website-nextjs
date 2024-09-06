@@ -1,4 +1,13 @@
 {
+  "Menu": [
+        "Home",
+        "About",
+        "Services",
+        "Technologies",
+        "Customers",
+        "Team",
+        "Contact"
+    ],
   "HomePage": {
     "title": "We transform businesses of most major sectors with powerful and adaptable digital solutions that satisfy the needs of today.",
     "links": ["our services", "get started"]

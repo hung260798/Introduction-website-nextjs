@@ -1,21 +1,18 @@
 "use client"
 import { open_sans, raleway } from "@/utils/fonts";
 import { useDeviceType } from "@/hooks/device";
-import { useInViewPort } from "@/hooks/viewport";
+import { useInViewPort, isInViewPortFully as inViewPortChecker } from "@/hooks/viewport";
 import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.css";
+import React from "react";
 
 export default function Footer() {
   const bttRef = useRef(null);
   const [isAnimating, setIsAnimating] = useState(false);
-  const isVisited = useInViewPort({elemRef: bttRef, inViewPortChecker: checker});
-  const animationDuration = 2000; //2s
+  const isVisited = useInViewPort({elemRef: bttRef, inViewPortChecker});
+  // const animationDuration = 2000; //2s
   const isDesktop = useDeviceType() === "Desktop";
   
-  function checker({top, bottom, wHeight}) {
-    return (0 < top && top < wHeight) && (0 < bottom && bottom < wHeight);
-  }
-
   useEffect(() => {
     if (isVisited) {
       setIsAnimating(true);
