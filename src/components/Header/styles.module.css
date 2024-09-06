@@ -1,3 +1,191 @@
 .header {
-    background-color: white;
+  line-height: 75px;
+  width: 100%;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  background: #ffffff;
+
+  transition: all 0.5s ease-out;
+  box-shadow: 0 5px 10px 0 rgba(50, 50, 50, 0.06);
+
+  z-index: 1000;
+}
+
+.navToggle {
+  display: none;
+  margin-left: 15px;
+}
+
+.siteBranding {
+  float: left;
+}
+
+.siteBranding .hasLogoImg {
+  line-height: 60px;
+}
+
+.siteBranding .logoDiv {
+  line-height: 75px;
+}
+
+.logoDiv img {
+  height: 36px;
+  width: auto;
+}
+
+@media screen and (max-width: 1140px) {
+  .mainNavigation {
+    position: static;
+  }
+
+  .navbar {
+    width: 100% !important;
+    display: block;
+    height: 0px;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .navbar.navbarMobile {
+    position: absolute;
+    top: 75px;
+    right: 0;
+    width: 100%;
+    z-index: 800;
+    overflow: auto !important;
+    border-top: 1px solid #e9e9e9;
+    border-bottom: 1px solid #e9e9e9;
+    height: fit-content;
+  }
+
+  .navbar.navbarMobile a {
+    padding: 12px 20px;
+    color: #777777;
+  }
+
+  .navbar.navbarMobile .menuItem {
+    line-height: 20px;
+    background: #ffffff;
+    border-top: 1px solid #e9e9e9;
+    width: 100% !important;
+  }
+
+  .navToggle {
+    display: block;
+  }
+}
+
+.navToggle {
+  float: right;
+  position: relative;
+  width: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  color: transparent;
+
+}
+
+.navToggle span {
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  margin-top: -2px;
+  -webkit-transition: rotate 0.2s, translate 0.2s;
+  -moz-transition: rotate 0.2s, translate 0.2s;
+  transition: rotate 0.2s, translate 0.2s;
+  display: inline-block;
+  height: 3px;
+  width: 24px;
+  background: #000000;
+}
+
+.navToggle span:before,
+.navToggle span:after {
+  position: absolute;
+  display: inline-block;
+  height: 3px;
+  width: 24px;
+  background: #000000;
+  content: "";
+  right: 0;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-origin: 0% 50%;
+  -moz-transform-origin: 0% 50%;
+  -ms-transform-origin: 0% 50%;
+  -o-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+  -webkit-transition: -webkit-transform 0.2s;
+  -moz-transition: -moz-transform 0.2s;
+  transition: transform 0.2s;
+}
+
+.navToggle span::before {
+  top: -8px;
+}
+
+.navToggle span::after {
+  top: 8px;
+}
+
+.navbar {
+  float: right;
+}
+
+.navbar,
+.navbar * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header::before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.header::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.navbar a {
+  color: #333333;
+  /* font-family: "Raleway", Helvetica, Arial, sans-serif; */
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  zoom: 1;
+  letter-spacing: 1px;
+  white-space: nowrap;
+
+  display: block;
+  position: relative;
+
+  outline: none;
+}
+
+.navbar a:hover {
+  color: #279dd7;
+}
+
+.navbar .menuItem {
+  white-space: nowrap;
+  /* transition: background 0.2s; */
+
+  float: left;
+  position: relative;
 }
