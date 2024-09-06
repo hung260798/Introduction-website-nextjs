@@ -1,19 +1,18 @@
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Services from "@/components/Services";
-import Technologies from "@/components/Technologies";
+import Services from "@/components/v2/Sections/Services";
 import React from "react";
 import styles from "./page.module.css"
+import Input from "@/components/v2/Controls/Input";
 
 export default function Home() {
   return (
-    <div className={`${styles.root}`}>
-      <Header />
-      <Services />
-      <Technologies />
-      <Contact />
-      <Footer />
+    <div>
+      <div style={{
+        background: "#333",
+        height: "400px",
+      }}>
+        <Input name={"name"} placeholder={"Your name"} type={"text"} />
+      
+      </div>
     </div>
   )
 }
