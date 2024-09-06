@@ -4,7 +4,9 @@ import { open_sans } from "@/utils/fonts"
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import Script from "next/script";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "/public/libs/bootstrap/css/bootstrap.min.css";
+import React from "react";
+
 
 const inter = Inter({ subsets: ["latin"] });
 

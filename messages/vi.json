@@ -1,4 +1,13 @@
 {
+    "Menu": [
+        "Trang chủ",
+        "Giới thiệu",
+        "Dịch vụ",
+        "Công nghệ",
+        "Khách hàng",
+        "Đội ngũ",
+        "Liên hệ"
+    ],
     "HomePage": {
         "title": "Chúng tôi chuyên biến đổi các doanh nghiệp trong hầu hết các lĩnh vực chính bằng các giải pháp kỹ thuật số mạnh mẽ và linh hoạt, đáp ứng các nhu cầu của thời đại hiện tại.",
         "links": [
