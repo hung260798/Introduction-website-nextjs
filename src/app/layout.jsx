@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import "bootstrap/dist/css/bootstrap.min.css"
+import "/public/libs/bootstrap/css/bootstrap.min.css"
 import Script from "next/script";
 import Head from 'next/head';
 import Header from "@/components/Header";
