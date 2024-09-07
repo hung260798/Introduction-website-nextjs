@@ -14,7 +14,7 @@ export default function Services() {
     { icon: "fa-handshake", index: 3 },
   ];
   return (
-    <section id="services-section" className={classNames("text center container")}>
+    <section id="services-section" className={classNames("text center container", "mt-4")}>
       <SectionHeader title={"Services"} subtitle={"what we really know how"} />
       <div className={classNames("row")}>
         {items.map(({ icon, index }) => (

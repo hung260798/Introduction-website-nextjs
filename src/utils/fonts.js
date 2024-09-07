@@ -1,4 +1,4 @@
-import { Open_Sans, Raleway, Roboto } from "next/font/google";
+import { Open_Sans, Raleway, Roboto, Inter } from "next/font/google";
 
 export const open_sans = Open_Sans({
   subsets: ["latin"],
@@ -16,4 +16,9 @@ export const roboto = Roboto({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "700"]
+})
+
+export const inter = Inter({
+  subsets: ["latin"],
+  display: "swap"
 })
