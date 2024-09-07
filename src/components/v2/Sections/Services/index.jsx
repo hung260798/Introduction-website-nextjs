@@ -15,10 +15,10 @@ export default function Services() {
   ];
   return (
     <section id="services-section" className={classNames("text center container", "mt-4")}>
-      <SectionHeader title={"Services"} subtitle={"what we really know how"} />
+      <SectionHeader title={t("title")} subtitle={t("subtitle")} />
       <div className={classNames("row")}>
         {items.map(({ icon, index }) => (
-          <div className={classNames("col-lg-6 col-12")}>
+          <div className={classNames("col-12")}>
             <RotateBox
               title={t(`items.${index}.title`)}
               desc={t(`items.${index}.description`)}

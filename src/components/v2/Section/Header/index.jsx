@@ -4,12 +4,14 @@ import styles from "./styles.module.css";
 import classNames from "classnames";
 
 export default function SectionHeader({ title, subtitle, lightText = false }) {
+  
   return (
     <div
       className={classNames(
         "container-xxl text-center",
         styles.root,
-        roboto.className
+        roboto.className,
+        
       )}
     >
       <div>

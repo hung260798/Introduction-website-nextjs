@@ -1,7 +1,14 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
 import styles from "./styles.module.css";
 import classNames from "classnames";
 import { roboto } from "@/utils/fonts";
+import "animate.css";
+import {
+  useInViewPort,
+  isInViewPortPartially as inViewPortChecker,
+} from "@/hooks/viewport";
 
 export default function RotateBox({
   icon = "fa-pie-chart",
@@ -9,16 +16,24 @@ export default function RotateBox({
   desc = "desc",
   layout = "horizontal",
 }) {
+  const elemRef = useRef(null);
+  const isInViewPort = useInViewPort({ elemRef, inViewPortChecker });
   return (
     <a
       // className="rotate-box-2 square-icon text-center wow zoomIn animated"
-      className={classNames(styles.root, styles.rotateBox, roboto.className)}
+      className={classNames(
+        styles.root,
+        styles.rotateBox,
+        roboto.className,
+        {
+          animate__animated: isInViewPort,
+          animate__zoomIn: isInViewPort,
+          animate__slow: isInViewPort
+        },
+      )}
       data-wow-delay="0"
-      style={{
-        visibility: "visible",
-        animationName: "zoomIn",
-      }}
       href="#"
+      ref={elemRef}
     >
       <span className={classNames(styles.rotateBoxIcon)}>
         <i className={classNames("fa", icon, styles.fa)}></i>
