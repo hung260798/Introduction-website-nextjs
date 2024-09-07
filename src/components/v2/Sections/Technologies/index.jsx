@@ -11,6 +11,13 @@ import { useInViewPort } from "@/hooks/viewport";
 export default function Technologies() {
   const t = useTranslations("Technologies");
   const dir = "/images/tech-icons";
+  const animateClass = [
+    "animate__animated",
+    "animate__fadeIn",
+    "animate__slow",
+    "visible"
+  ];
+  const { isInViewPort, elemRef } = useInViewPort({ fullyIn: true });
   const technologies = [
     { icon: "csharp.svg", name: ".NET" },
     { icon: "php.png", name: "PHP" },
@@ -29,7 +36,14 @@ export default function Technologies() {
             lightText={true}
           />
         </div>
-        <div className={classNames(styles.desc, "text-center")}>
+        <div
+          className={classNames(
+            styles.desc,
+            "text-center",
+            isInViewPort ? classNames(...animateClass) : "invisible"
+          )}
+          ref={elemRef}
+        >
           <p>{t("description.0")}</p>
           <p>{t("description.1")}</p>
           <p>{t("description.2")}</p>

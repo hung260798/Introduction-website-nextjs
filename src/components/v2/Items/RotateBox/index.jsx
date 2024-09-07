@@ -16,22 +16,25 @@ export default function RotateBox({
   desc = "desc",
   layout = "horizontal",
 }) {
+  const animateClass = [
+    "animate__animated",
+    "animate__zoomIn",
+    "animate__slow",
+    "visible",
+  ];
   // const elemRef = useRef(null);
   const { isInViewPort, elemRef } = useInViewPort({ fullyIn: true });
   return (
     <a
       // className="rotate-box-2 square-icon text-center wow zoomIn animated"
-      className={classNames(styles.root, styles.rotateBox, roboto.className, {
-        animate__animated: isInViewPort,
-        animate__zoomIn: isInViewPort,
-        animate__slow: isInViewPort,
-      })}
-      data-wow-delay="0"
+      className={classNames(
+        styles.root,
+        styles.rotateBox,
+        roboto.className,
+        isInViewPort ? classNames(...animateClass) : "invisible"
+      )}
       href="#"
       ref={elemRef}
-      style={{
-        visibility: isInViewPort ? "visible" : "hidden"
-      }}
     >
       <span className={classNames(styles.rotateBoxIcon)}>
         <i className={classNames("fa", icon, styles.fa)}></i>
