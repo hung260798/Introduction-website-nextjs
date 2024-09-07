@@ -1,106 +1,31 @@
 import React from "react";
 import SectionHeader from "../../Section/Header";
+import styles from "./styles.module.css";
+import classNames from "classnames";
+import RotateBox from "@/components/v2/Items/RotateBox";
+import { useTranslations } from "next-intl";
 
 export default function Services() {
+  const t = useTranslations("Services");
+  const items = [
+    { icon: "fa-globe", index: 0 },
+    { icon: "fa-mobile", index: 1 },
+    { icon: "fa-building", index: 2 },
+    { icon: "fa-handshake", index: 3 },
+  ];
   return (
-    <section id="services-section" className="page text-center">
-      <SectionHeader title={'Services'} subtitle={'what we really know how'} />
-
-      <div className="rotate-box-2-wrapper">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-3 col-sm-6">
-              <a
-                href="#"
-                className="rotate-box-2 square-icon text-center wow zoomIn"
-                data-wow-delay="0"
-              >
-                <span className="rotate-box-icon">
-                  <i className="fa fa-mobile"></i>
-                </span>
-                <div className="rotate-box-info">
-                  <h4>App Development</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet set, consectetur utes anet
-                    adipisicing elit, sed do eiusmod tempor incidist.
-                  </p>
-                </div>
-              </a>
-            </div>
-
-            <div className="col-md-3 col-sm-6">
-              <a
-                href="#"
-                className="rotate-box-2 square-icon text-center wow zoomIn"
-                data-wow-delay="0.2s"
-              >
-                <span className="rotate-box-icon">
-                  <i className="fa fa-pie-chart"></i>
-                </span>
-                <div className="rotate-box-info">
-                  <h4>Ui Design</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet set, consectetur utes anet
-                    adipisicing elit, sed do eiusmod tempor incidist.
-                  </p>
-                </div>
-              </a>
-            </div>
-
-            <div className="col-md-3 col-sm-6">
-              <a
-                href="#"
-                className="rotate-box-2 square-icon text-center wow zoomIn"
-                data-wow-delay="0.4s"
-              >
-                <span className="rotate-box-icon">
-                  <i className="fa fa-cloud"></i>
-                </span>
-                <div className="rotate-box-info">
-                  <h4>Cloud Hosting</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet set, consectetur utes anet
-                    adipisicing elit, sed do eiusmod tempor incidist.
-                  </p>
-                </div>
-              </a>
-            </div>
-
-            <div className="col-md-3 col-sm-6">
-              <a
-                href="#"
-                className="rotate-box-2 square-icon text-center wow zoomIn"
-                data-wow-delay="0.6s"
-              >
-                <span className="rotate-box-icon">
-                  <i className="fa fa-pencil"></i>
-                </span>
-                <div className="rotate-box-info">
-                  <h4>Coding Pen</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet set, consectetur utes anet
-                    adipisicing elit, sed do eiusmod tempor incidist.
-                  </p>
-                </div>
-              </a>
-            </div>
+    <section id="services-section" className={classNames("text center container")}>
+      <SectionHeader title={"Services"} subtitle={"what we really know how"} />
+      <div className={classNames("row")}>
+        {items.map(({ icon, index }) => (
+          <div className={classNames("col-lg-6 col-12")}>
+            <RotateBox
+              title={t(`items.${index}.title`)}
+              desc={t(`items.${index}.description`)}
+              icon={icon}
+            />
           </div>
-        </div>
-
-        <div className="container">
-          <div className="extra-space-l"></div>
-          <div className="text-center">
-            <a
-              className="btn btn-default btn-lg-xl"
-              href="http://www.imransdesign.com/"
-              target="_blank"
-              role="button"
-              rel="noreferrer"
-            >
-              Large Button
-            </a>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
