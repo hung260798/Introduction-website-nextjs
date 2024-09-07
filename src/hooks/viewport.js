@@ -1,9 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-export function useInViewPort({
-  elemRef,
-  inViewPortChecker,
-}) {
+export function useInViewPort({ fullyIn = true }) {
+  const elemRef = useRef(null);
+  const inViewPortChecker = fullyIn ? isInViewPortFully : isInViewPortPartially;
   const [isInViewPort, setIsInViewPort] = useState(false);
   const checkAndSet = useCallback(() => {
     if (!elemRef.current) {
@@ -17,7 +16,7 @@ export function useInViewPort({
     if (inViewPortChecker({ top, bottom, wHeight })) {
       setIsInViewPort(true);
     }
-  }, [isInViewPort, elemRef, inViewPortChecker]);
+  }, [isInViewPort, elemRef]);
 
   useEffect(() => {
     checkAndSet();
@@ -38,13 +37,13 @@ export function useInViewPort({
     []
   );
 
-  return isInViewPort;
+  return { isInViewPort, elemRef };
 }
 
-export function isInViewPortPartially({top, bottom, wHeight}) {
+export function isInViewPortPartially({ top, bottom, wHeight }) {
   return (0 < top && top < wHeight) || (0 < bottom && bottom < wHeight);
 }
 
-export function isInViewPortFully({top,bottom,wHeight}) {
-  return (0 < top && top < wHeight) && (0 < bottom && bottom < wHeight);
+export function isInViewPortFully({ top, bottom, wHeight }) {
+  return 0 < top && top < wHeight && 0 < bottom && bottom < wHeight;
 }
