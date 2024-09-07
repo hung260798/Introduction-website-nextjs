@@ -3,7 +3,7 @@ import { roboto } from "@/utils/fonts";
 import styles from "./styles.module.css";
 import classNames from "classnames";
 
-export default function SectionHeader({ title, subtitle }) {
+export default function SectionHeader({ title, subtitle, lightText = false }) {
   return (
     <div
       className={classNames(
@@ -13,11 +13,22 @@ export default function SectionHeader({ title, subtitle }) {
       )}
     >
       <div>
-        <h2 className={classNames(styles.title)}>{title}</h2>
+        <h2
+          className={classNames(styles.title, {
+            [styles.lightText]: lightText,
+          })}
+        >
+          {title}
+        </h2>
         <div className={classNames(styles.divider)}></div>
-        <p>{subtitle}</p>
+        <p
+          className={classNames(styles.subtitle, {
+            [styles.lightText]: lightText,
+          })}
+        >
+          {subtitle}
+        </p>
       </div>
     </div>
   );
 }
-

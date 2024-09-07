@@ -10,3 +10,7 @@
   text-transform: uppercase;
   font-weight: 700;
 }
+
+.lightText {
+  color: #ffffff;
+}
