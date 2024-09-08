@@ -3,6 +3,8 @@
     background-color: #fff;
 }
 
+.team_container {}
+
 .section_subtitle {
     color         : #aaaaaa;
     text-transform: uppercase;
@@ -39,6 +41,10 @@
     margin   : 10px 0 20px;
 }
 
+.member_icon_wrapper img:hover {
+    filter: brightness(110%);
+}
+
 .member_name {
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -46,6 +52,11 @@
     font-weight   : 700;
     font-family   : "Raleway", Helvetica, Arial, sans-serif;
     color         : #333333;
+}
+
+.hr {
+    width : 50%;
+    margin: 0px auto 12px;
 }
 
 .member_position {

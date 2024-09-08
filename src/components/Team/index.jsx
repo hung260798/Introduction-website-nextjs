@@ -30,7 +30,7 @@ export default function Team() {
 
     return (
         <section id='team' className={styles.team_wrapper}>
-            <div className={`container my-5`}>
+            <div className={`container my-5 ${styles.team_container}`}>
                 <h2 className={`text-center ${styles.section_subtitle}`}>#OUR TEAM</h2>
                 <h1 className={`text-center ${styles.section_title}`}>TEAM MEMBER</h1>
                 <p className={`text-center mb-5 ${styles.section_desc}`}>
@@ -53,7 +53,7 @@ export default function Team() {
 
                                 <div className={styles.member_info}>
                                     <h5 className={`text-center ${styles.member_name}`}>{member.name}</h5>
-                                    <hr />
+                                    <hr className={styles.hr}></hr>
                                     <p className={`text-center ${styles.member_position}`}>{member.position}</p>
                                 </div>
                             </div>
