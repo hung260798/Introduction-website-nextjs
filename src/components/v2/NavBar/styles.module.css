@@ -1,0 +1,31 @@
+.root {
+  background-color: #363940;
+  display: flex;
+  color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 70px;
+  /* line-height: 70px; */
+}
+
+.root a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.root .navbarItem {
+  text-transform: uppercase;
+  padding: 10px 5px;
+}
+
+.root ul, .root li {
+  list-style: none;
+}
+
+.navbarNav {
+  background-color: #363940;
+  width: 100%;
+}

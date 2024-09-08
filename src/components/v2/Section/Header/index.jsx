@@ -17,7 +17,6 @@ export default function SectionHeader({ title, subtitle, lightText = false }) {
         isInViewPort
           ? classNames(
               "animate__animated",
-              "animate__slow",
               "animate__fadeInUp"
             )
           : ""

@@ -7,18 +7,29 @@ import RotateBox from "../../Items/RotateBox";
 
 export default function About() {
   const t = useTranslations("About");
-  const features = [{}, {}, {}];
+  const features = [
+    {
+      key: 0,
+    },
+    {
+      key: 1,
+    },
+    {
+      key: 2,
+    },
+  ];
   return (
-    <section className={classNames(styles.root, "pt-4 container")}>
+    <section id="about" className={classNames(styles.root, "pt-4 container")}>
       <div className={classNames("mt-4 mb-4")}>
         <SectionHeader title={t("title")} subtitle={t("subtitle")} />
       </div>
       <div className={classNames("mt-4 mb-4", "row")}>
-        {features.map((_, idx) => (
-          <div className={classNames("col-md-4")} key={idx}>
+        {features.map(({ key }) => (
+          <div className={classNames("col-md-4")} key={key}>
             <RotateBox
-              title={t(`items.${idx}.title`)}
-              desc={t(`items.${idx}.text`)}
+              title={t(`items.${key}.title`)}
+              desc={t(`items.${key}.text`)}
+              animationDelay={key * 0.3}
             />
           </div>
         ))}

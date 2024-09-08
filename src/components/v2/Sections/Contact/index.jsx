@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 export default function Page() {
   const t = useTranslations("Contact");
   return (
-    <div className={classNames("container-fluid", styles.root)}>
+    <section id="contact" className={classNames("container-fluid", styles.root)}>
       <div className={`${styles.cover}`}></div>
       <div className={classNames("container", styles.contentWrap)}>
         <SectionHeader title={t("title")} subtitle={t("subtitle")} />
@@ -50,6 +50,6 @@ export default function Page() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

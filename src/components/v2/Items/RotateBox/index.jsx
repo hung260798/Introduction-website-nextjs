@@ -8,6 +8,7 @@ import "animate.css";
 import {
   useInViewPort,
   isInViewPortPartially as inViewPortChecker,
+  useObserver,
 } from "@/hooks/viewport";
 
 export default function RotateBox({
@@ -15,15 +16,15 @@ export default function RotateBox({
   title = "title",
   desc = "desc",
   layout = "horizontal",
+  animationDelay = 0.2,
 }) {
   const animateClass = [
     "animate__animated",
     "animate__zoomIn",
-    "animate__slow",
     "visible",
   ];
   // const elemRef = useRef(null);
-  const { isInViewPort, elemRef } = useInViewPort({ fullyIn: true });
+  const { isInViewPort, elemRef } = useObserver();
   return (
     <a
       // className="rotate-box-2 square-icon text-center wow zoomIn animated"
@@ -35,6 +36,9 @@ export default function RotateBox({
       )}
       href="#"
       ref={elemRef}
+      style={{
+        animationDelay: `${animationDelay}s`
+      }}
     >
       <span className={classNames(styles.rotateBoxIcon)}>
         <i className={classNames("fa", icon, styles.fa)}></i>

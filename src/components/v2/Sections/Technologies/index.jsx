@@ -15,20 +15,20 @@ export default function Technologies() {
     "animate__animated",
     "animate__fadeIn",
     "animate__slow",
-    "visible"
+    "visible",
   ];
   const { isInViewPort, elemRef } = useInViewPort({ fullyIn: true });
   const technologies = [
-    { icon: "csharp.svg", name: ".NET" },
-    { icon: "php.png", name: "PHP" },
-    { icon: "ruby.svg", name: "Ruby" },
-    { icon: "typescript.svg", name: "NodeJS" },
-    { icon: "python.svg", name: "Python" },
-    { icon: "rust.svg", name: "Rust" },
+    { icon: "csharp.svg", name: ".NET", key: 0 },
+    { icon: "php.png", name: "PHP", key: 1 },
+    { icon: "ruby.svg", name: "Ruby", key: 2 },
+    { icon: "typescript.svg", name: "NodeJS", key: 3 },
+    { icon: "python.svg", name: "Python", key: 4 },
+    { icon: "rust.svg", name: "Rust", key: 5 },
   ];
   return (
-    <div className={classNames(styles.rootWrapper)}>
-      <section className={classNames("container pt-4", styles.root)}>
+    <section id="technologies" className={classNames(styles.rootWrapper)}>
+      <div className={classNames("container pt-4", styles.root)}>
         <div className={classNames("mt-4 mb-4")}>
           <SectionHeader
             title={t("title")}
@@ -49,13 +49,16 @@ export default function Technologies() {
           <p>{t("description.2")}</p>
         </div>
         <div className={classNames("row pt-4")}>
-          {technologies.map(({ icon, name }) => (
-            <div className={classNames("col-12 col-md-6 col-lg-3 mb-4")}>
-              <TechItem key={name} icon={`${dir}/${icon}`} name={name} />
+          {technologies.map(({ icon, name, key }) => (
+            <div
+              key={key}
+              className={classNames("col-12 col-md-6 col-lg-3 mb-4")}
+            >
+              <TechItem icon={`${dir}/${icon}`} name={name} />
             </div>
           ))}
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

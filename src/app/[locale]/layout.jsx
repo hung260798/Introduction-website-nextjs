@@ -26,6 +26,7 @@ export default async function RootLayout({ children, params: { locale } }) {
           src="https://kit.fontawesome.com/e3374afba4.js"
           crossOrigin="anonymous"
         />
+        <Script src="libs/bootstrap/js/bootstrap.min.js" />
       </body>
     </html>
   );
