@@ -11,6 +11,7 @@ import styles from "./page.module.css";
 import classNames from "classnames";
 import ctx from "@/context/navigation";
 import { currentPosition, reducer } from "@/reducers/positionReducer";
+import Footer from "@/components/v2/Footer";
 
 export default function Home() {
   const [currentPos, dispatch] = useReducer(reducer, currentPosition);
@@ -32,6 +33,7 @@ export default function Home() {
           <TechnologiesSection />
           <ContactSection />
         </main>
+        <Footer />
       </div>
     </ctx.Provider>
   );
