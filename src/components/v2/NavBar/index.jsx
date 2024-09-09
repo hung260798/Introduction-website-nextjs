@@ -7,14 +7,16 @@ import styles from "./styles.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import ctx from "@/context/navigation";
+import { useTranslations } from "next-intl";
 
 export default function NavBar() {
+  const t = useTranslations("Menu");
   const items = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Technologies", href: "#technologies" },
-    { name: "Contact", href: "#contact" },
+    { name: 0, href: "#home" },
+    { name: 1, href: "#about" },
+    { name: 2, href: "#services" },
+    { name: 3, href: "#technologies" },
+    { name: 6, href: "#contact" },
   ];
   const logo = "/images/Techno7.png";
   const [showingVertMenu, setShowingVertMenu] = useState(false);
@@ -29,7 +31,7 @@ export default function NavBar() {
         className={classNames({ [styles.current]: href === currentPos.href })}
         onClick={(e) => setShowingVertMenu(false)}
       >
-        {name}
+        {t(`${name}`)}
       </Link>
     </li>
   ));

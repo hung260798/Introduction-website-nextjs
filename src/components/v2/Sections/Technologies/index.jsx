@@ -12,7 +12,7 @@ import useNavigation from "@/hooks/navigationHook";
 export default function Technologies() {
   const t = useTranslations("Technologies");
   const sectionRef = useNavigation();
-  const dir = "/images/tech-icons";
+  const dir = "/images/techicons";
   const animateClass = [
     "animate__animated",
     "animate__fadeIn",
@@ -60,7 +60,7 @@ export default function Technologies() {
               key={key}
               className={classNames("col-12 col-md-6 col-lg-3 mb-4")}
             >
-              <TechItem icon={`${dir}/${icon}`} name={name} />
+              <TechItem icon={`${dir}/languages/${icon}`} name={name} />
             </div>
           ))}
         </div>

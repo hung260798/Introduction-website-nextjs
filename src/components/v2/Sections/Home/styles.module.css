@@ -11,7 +11,6 @@
 .root {
   position: relative;
   background-image: url("/img/slider-bg.jpg");
-  width: 100vw;
   height: 100vh;
   background-position: 0% 0%;
   background-repeat: no-repeat;
@@ -52,7 +51,7 @@
   border-color: black;
 }
 
-.root .title {
+.title {
   color: #ffffff;
   font-weight: 700;
   font-size: 4em;
@@ -72,7 +71,6 @@
   }
 }
 
-
 @media (max-width: 500px) {
   .root {
     font-size: 14px;
@@ -82,8 +80,6 @@
     font-size: 1.2em;
   }
 }
-
-
 
 .root .content {
   text-align: center;
