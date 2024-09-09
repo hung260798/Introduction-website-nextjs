@@ -20,14 +20,24 @@ export default function Technologies() {
     "visible",
   ];
   const { isInViewPort, elemRef } = useInViewPort({ fullyIn: true });
-  const technologies = [
-    { icon: "csharp.svg", name: ".NET", key: 0 },
-    { icon: "php.png", name: "PHP", key: 1 },
-    { icon: "ruby.svg", name: "Ruby", key: 2 },
-    { icon: "typescript.svg", name: "NodeJS", key: 3 },
-    { icon: "python.svg", name: "Python", key: 4 },
-    { icon: "rust.svg", name: "Rust", key: 5 },
-  ];
+  const technologies = {
+    backend: [
+      { icon: "csharp.svg", name: ".NET", key: 0 },
+      { icon: "php.png", name: "PHP", key: 1 },
+      { icon: "ruby.svg", name: "Ruby", key: 2 },
+      { icon: "typescript.svg", name: "NodeJS", key: 3 },
+      { icon: "python.svg", name: "Python", key: 4 },
+      { icon: "rust.svg", name: "Rust", key: 5 },
+    ],
+    frontend: [
+      { icon: "angular.svg", name: "Angular", key: 0 },
+      { icon: "react.svg", name: "ReactJS", key: 1 },
+      { icon: "redux.svg", name: "Redux", key: 2 },
+      { icon: "vuejs.svg", name: "VueJS", key: 3 },
+      // { icon: "python.svg", name: "Python", key: 4 },
+      // { icon: "rust.svg", name: "Rust", key: 5 },
+    ],
+  };
   return (
     <section
       id="technologies"
@@ -55,12 +65,24 @@ export default function Technologies() {
           <p>{t("description.2")}</p>
         </div>
         <div className={classNames("row pt-4")}>
-          {technologies.map(({ icon, name, key }) => (
+          <h5 className={styles.techListTitle}>BACKEND</h5>
+          {technologies.backend.map(({ icon, name, key }) => (
             <div
               key={key}
               className={classNames("col-12 col-md-6 col-lg-3 mb-4")}
             >
               <TechItem icon={`${dir}/languages/${icon}`} name={name} />
+            </div>
+          ))}
+        </div>
+        <div className={classNames("row pt-4")}>
+          <h5 className={styles.techListTitle}>FRONTEND</h5>
+          {technologies.frontend.map(({ icon, name, key }) => (
+            <div
+              key={key}
+              className={classNames("col-12 col-md-6 col-lg-3 mb-4")}
+            >
+              <TechItem icon={`${dir}/frameworks/${icon}`} name={name} />
             </div>
           ))}
         </div>
