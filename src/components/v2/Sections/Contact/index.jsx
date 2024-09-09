@@ -1,3 +1,5 @@
+"use client";
+
 import Input from "@/components/v2/Controls/Input";
 import AddressLine from "@/components/v2/Items/AddressLine";
 import SectionHeader from "@/components/v2/SectionHeader";
@@ -5,11 +7,17 @@ import React from "react";
 import classNames from "classnames";
 import styles from "./styles.module.css";
 import { useTranslations } from "next-intl";
+import useNavigation from "@/hooks/navigationHook";
 
 export default function Page() {
   const t = useTranslations("Contact");
+  const elemRef = useNavigation();
   return (
-    <section id="contact" className={classNames("container-fluid", styles.root)}>
+    <section
+      id="contact"
+      className={classNames("container-fluid", styles.root)}
+      ref={elemRef}
+    >
       <div className={`${styles.cover}`}></div>
       <div className={classNames("container", styles.contentWrap)}>
         <SectionHeader title={t("title")} subtitle={t("subtitle")} />

@@ -4,9 +4,11 @@ import { useTranslations } from "next-intl";
 import classNames from "classnames";
 import styles from "./styles.module.css";
 import RotateBox from "../../Items/RotateBox";
+import useNavigation from "@/hooks/navigationHook";
 
 export default function About() {
   const t = useTranslations("About");
+  const sectionRef = useNavigation();
   const features = [
     {
       key: 0,
@@ -19,7 +21,11 @@ export default function About() {
     },
   ];
   return (
-    <section id="about" className={classNames(styles.root, "pt-4 container")}>
+    <section
+      id="about"
+      className={classNames(styles.root, "pt-4 container")}
+      ref={sectionRef}
+    >
       <div className={classNames("mt-4 mb-4")}>
         <SectionHeader title={t("title")} subtitle={t("subtitle")} />
       </div>

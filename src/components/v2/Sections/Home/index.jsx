@@ -2,10 +2,12 @@ import classNames from "classnames";
 import Image from "next/image";
 import React from "react";
 import styles from "./styles.module.css";
+import useNavigation from "@/hooks/navigationHook";
 
 export default function Home() {
+  const sectionRef = useNavigation();
   return (
-    <div className={styles.root} id="home">
+    <div className={styles.root} id="home" ref={sectionRef}>
       <div className={classNames(styles.contentWrap)}>
         <div className={classNames(styles.content)}>
           <div className={styles.title}>

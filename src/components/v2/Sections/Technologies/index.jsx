@@ -7,9 +7,11 @@ import styles from "./styles.module.css";
 import SectionHeader from "../../SectionHeader";
 import { useTranslations } from "next-intl";
 import { useInViewPort } from "@/hooks/viewport";
+import useNavigation from "@/hooks/navigationHook";
 
 export default function Technologies() {
   const t = useTranslations("Technologies");
+  const sectionRef = useNavigation();
   const dir = "/images/tech-icons";
   const animateClass = [
     "animate__animated",
@@ -27,7 +29,11 @@ export default function Technologies() {
     { icon: "rust.svg", name: "Rust", key: 5 },
   ];
   return (
-    <section id="technologies" className={classNames(styles.rootWrapper)}>
+    <section
+      id="technologies"
+      className={classNames(styles.rootWrapper)}
+      ref={sectionRef}
+    >
       <div className={classNames("container pt-4", styles.root)}>
         <div className={classNames("mt-4 mb-4")}>
           <SectionHeader
