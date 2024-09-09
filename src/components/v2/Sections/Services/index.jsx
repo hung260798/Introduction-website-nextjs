@@ -18,7 +18,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className={classNames("text center container", "mt-4")}
+      className={classNames("text center container", "mt-4", styles.root)}
       ref={sectionRef}
     >
       <SectionHeader title={t("title")} subtitle={t("subtitle")} />
