@@ -4,7 +4,7 @@ import classNames from "classnames";
 import React from "react";
 import TechItem from "../../Items/Technology";
 import styles from "./styles.module.css";
-import SectionHeader from "../../Section/Header";
+import SectionHeader from "../../SectionHeader";
 import { useTranslations } from "next-intl";
 import { useInViewPort } from "@/hooks/viewport";
 

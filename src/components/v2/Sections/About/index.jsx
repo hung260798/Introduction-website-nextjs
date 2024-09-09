@@ -1,5 +1,5 @@
 import React from "react";
-import SectionHeader from "../../Section/Header";
+import SectionHeader from "../../SectionHeader";
 import { useTranslations } from "next-intl";
 import classNames from "classnames";
 import styles from "./styles.module.css";

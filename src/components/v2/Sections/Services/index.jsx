@@ -1,5 +1,5 @@
 import React from "react";
-import SectionHeader from "../../Section/Header";
+import SectionHeader from "../../SectionHeader";
 import styles from "./styles.module.css";
 import classNames from "classnames";
 import RotateBox from "@/components/v2/Items/RotateBox";

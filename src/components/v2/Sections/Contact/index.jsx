@@ -1,6 +1,6 @@
 import Input from "@/components/v2/Controls/Input";
 import AddressLine from "@/components/v2/Items/AddressLine";
-import SectionHeader from "@/components/v2/Section/Header";
+import SectionHeader from "@/components/v2/SectionHeader";
 import React from "react";
 import classNames from "classnames";
 import styles from "./styles.module.css";
