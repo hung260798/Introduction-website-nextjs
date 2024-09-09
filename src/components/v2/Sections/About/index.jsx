@@ -20,26 +20,42 @@ export default function About() {
       key: 2,
     },
   ];
+  const features2 = [{ key: 3 }, { key: 4 }];
   return (
-    <section
-      id="about"
-      className={classNames(styles.root, "pt-4 container")}
-      ref={sectionRef}
-    >
-      <div className={classNames("mt-4 mb-4")}>
-        <SectionHeader title={t("title")} subtitle={t("subtitle")} />
-      </div>
-      <div className={classNames("mt-4 mb-4", "row")}>
-        {features.map(({ key }) => (
-          <div className={classNames("col-md-4")} key={key}>
-            <RotateBox
-              title={t(`items.${key}.title`)}
-              desc={t(`items.${key}.text`)}
-              animationDelay={key * 0.3}
-            />
+    <React.Fragment>
+      <section id="about" ref={sectionRef}>
+        <div className="container pt-4">
+          <div className={classNames("mt-4 mb-4")}>
+            <SectionHeader title={t("title")} subtitle={t("subtitle")} />
           </div>
-        ))}
-      </div>
-    </section>
+          <div className={classNames("mt-4 mb-4", "row")}>
+            {features.map(({ key }) => (
+              <div className={classNames("col-md-4")} key={key}>
+                <RotateBox
+                  title={t(`items.${key}.title`)}
+                  desc={t(`items.${key}.text`)}
+                  animationDelay={key * 0.3}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section id="about2" className={classNames(styles.root)}>
+        <div className="container pt-4">
+          <div className={classNames("mt-4 mb-4", "row")}>
+            {features2.map(({ key }) => (
+              <div className={classNames("col-md-6")} key={key}>
+                <RotateBox
+                  title={t(`items.${key}.title`)}
+                  desc={t(`items.${key}.text`)}
+                  animationDelay={key * 0.3}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </React.Fragment>
   );
 }

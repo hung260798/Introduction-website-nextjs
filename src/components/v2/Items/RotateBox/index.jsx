@@ -26,7 +26,7 @@ export default function RotateBox({
   // const elemRef = useRef(null);
   const { isInViewPort, elemRef } = useObserver();
   return (
-    <a
+    <div
       // className="rotate-box-2 square-icon text-center wow zoomIn animated"
       className={classNames(
         styles.root,
@@ -34,7 +34,7 @@ export default function RotateBox({
         roboto.className,
         isInViewPort ? classNames(...animateClass) : "invisible"
       )}
-      href="#"
+      // href="#"
       ref={elemRef}
       style={{
         animationDelay: `${animationDelay}s`
@@ -47,6 +47,6 @@ export default function RotateBox({
         <h4 className={classNames(styles.title)}>{title}</h4> {/* *title */}
         <p className={classNames(styles.desc)}>{desc}</p> {/* description */}
       </div>
-    </a>
+    </div>
   );
 }
