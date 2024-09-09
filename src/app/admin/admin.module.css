@@ -1,0 +1,528 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+
+.mainContent {
+    display: flex;
+    flex: 1;
+}
+
+.header {
+    background-color: #272727;
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 5px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    width: 190px;
+    height: auto;
+}
+
+.title {
+    flex-grow: 1;
+    text-align: center;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #272727;
+    padding: 16px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 8px 0 0 8px;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar.sidebarOpen {
+    transform: translateX(0);
+}
+
+.sidebar.sidebarClosed {
+    transform: translateX(-100%);
+}
+
+.menuIcon {
+    cursor: pointer;
+    color: white;
+    margin-right: 20px;
+    font-size: 40px;
+
+}
+
+.closeIcon {
+    cursor: pointer;
+    color: #fff;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.sidebar {
+    transform: translateX(0);
+}
+
+.sidebarClosed+.content {
+    margin-left: -280px;
+}
+
+.sidebarContent {
+    color: #fff;
+}
+
+
+.sidebarItem {
+    font-size: 19px;
+    font-weight: 500;
+    margin: 10px 0;
+    padding: 15px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebarItem:hover {
+    background-color: #b2b2b2;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.activeSidebarItem {
+    background-color: #b2b2b2;
+    font-weight: bold;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease;
+    border-radius: 0 8px 8px 0;
+    position: relative;
+    transition: margin-left 0.3s ease;
+}
+
+.contentTitle {
+    font-size: 35px;
+}
+
+.functionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+
+}
+
+.searchInput {
+    width: 600px;
+    padding: 5px;
+    font-size: 25px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.contentTable {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 8px;
+    position: relative;
+}
+
+.tableContainer {
+    max-height: 80vh;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.tableContainer::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tableContainer::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 4px;
+}
+
+.tableContainer::-webkit-scrollbar-thumb {
+    background: #272727;
+    border-radius: 4px;
+}
+
+.tableContainer::-webkit-scrollbar-thumb:hover {
+    background: #424242;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.buttonTableGroup {
+    text-align: center;
+}
+
+.contentCell {
+    max-height: 200px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.innerContent {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.innerContent::-webkit-scrollbar {
+    width: 4px;
+}
+
+.innerContent::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 2px;
+}
+
+.innerContent::-webkit-scrollbar-thumb {
+    background: #dfdfdf;
+    border-radius: 2px;
+}
+
+.innerContent::-webkit-scrollbar-thumb:hover {
+    background: #cccccc;
+}
+
+.noData {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    font-size: 20px;
+    padding: 20px 0;
+}
+
+.checkbox {
+    width: 24px; 
+    height: 24px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 5px;
+}
+
+.buttonAddPrimary {
+    background-color: #3dc253;
+    color: white;
+    font-size: 19px;
+}
+
+.buttonAddPrimary:hover {
+    background-color: #3de264;
+    transform: translateY(-2px);
+}
+
+.buttonPrimary {
+    background-color: #279dd7;
+    color: white;
+}
+
+.buttonPrimary:hover {
+    background-color: #1eaef6;;
+    transform: translateY(-2px);
+}
+
+.buttonSecondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.buttonSecondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.buttonDanger {
+    background-color: #d11b2d;
+    color: white;
+}
+
+.buttonDanger:hover {
+    background-color: #f0152b;
+    transform: translateY(-2px);
+}
+
+.buttonDefault {
+    background-color: #d4d4d4;
+    color: #212529;
+}
+
+.buttonDefault:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.buttonSearch {
+    margin-right: 10px;
+    font-size: 19px;
+}
+
+.buttonReload {
+    background-color: #cbbf12;
+    font-size: 19px;
+}
+
+.buttonReload:hover {
+    background-color: #ebdd15;
+}
+
+.modalContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    outline: none;
+    width: 700px;
+    height: auto;
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modalButton {
+    padding: 10px 20px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+    margin-top: 20px;
+    width: 45%;
+}
+
+.modalButtonGroup {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.modalButtonPrimary {
+    background-color: #279dd7;
+    color: white;
+}
+
+.modalButtonPrimary:hover {
+    background-color: #1eaef6;
+    transform: translateY(-2px);
+}
+
+.modalButtonSecondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.modalButtonSecondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.modalButton.modalButtonPrimary {
+    background-color: #297dd4;
+    color: white;
+}
+
+.modalButton.modalButtonPrimary:hover {
+    background-color: #1eaef6;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.modalButton.modalButtonSecondary {
+    border: 2px solid transparent;
+    background-color: #ffffff;
+    color: #297dd4;
+    border-color: #297dd4;
+}
+
+.modalButton.modalButtonSecondary:hover {
+    background-color: #8c949c;
+    border-color: #8c949c;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.modalButtonDanger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.modalButtonDanger:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.modalButtonDefault {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.modalButtonDefault:hover {
+    background-color: #e2e6ea;
+    transform: translateY(-2px);
+}
+
+.modalButtonPrimary.modalButtonPrimaryDel {
+    background-color: #d11b2d;
+    color: white;
+}
+
+.modalButtonPrimary.modalButtonPrimaryDel:hover {
+    background-color: #f0152b;
+}
+
+
+.input,
+.textarea {
+    width: '100%';
+    margin: 8px 0;
+}
+
+.textarea {
+    height: 250px;
+}
+
+.modalTitle {
+    margin: 0 0 20px 0;
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+}
+
+.input,
+.textarea {
+    width: calc(100% - 24px);
+    margin: 12px 0;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input:focus,
+.textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.textarea {
+    height: 360px;
+    resize: none;
+}
+
+.modalContentView {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.modalTitleView {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.modalImageView {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.modalContentTextView {
+    font-size: 16px;
+    margin-bottom: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.modalContentTextView::-webkit-scrollbar {
+    width: 4px;
+}
+
+.modalContentTextView:-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 2px;
+}
+
+.modalContentTextView::-webkit-scrollbar-thumb {
+    background: #dfdfdf;
+    border-radius: 2px;
+}
+
+.modalContentTextView::-webkit-scrollbar-thumb:hover {
+    background: #cccccc;
+}
+
+.modalTimestampView {
+    font-size: 12px;
+    color: gray;
+    text-align: right;
+}
+
+.modalButtonView {
+    width: 100%;
+    margin: 15px 0;
+}
