@@ -24,7 +24,7 @@ export default function Services() {
       <SectionHeader title={t("title")} subtitle={t("subtitle")} />
       <div className={classNames("row")}>
         {items.map(({ icon, index }) => (
-          <div className={classNames("col-12")} key={index}>
+          <div className={classNames("col-12", styles.service)} key={index}>
             <RotateBox
               title={t(`items.${index}.title`)}
               desc={t(`items.${index}.description`)}

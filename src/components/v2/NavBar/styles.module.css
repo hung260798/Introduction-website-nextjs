@@ -23,7 +23,7 @@
   display: flex;
   height: 70px;
   line-height: 70px;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0 20px;
 }
 
@@ -34,6 +34,7 @@
   display: block;
   padding: 0;
   border-top: 3px solid #363940;
+  font-size: 16px;
 }
 
 .root a.current,
@@ -125,6 +126,10 @@
 }
 
 @media (max-width: 900px) {
+  .root {
+    justify-content: space-between;
+  }
+
   .navToggler {
     display: block;
     cursor: pointer;

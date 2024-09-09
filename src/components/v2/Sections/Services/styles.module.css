@@ -1,3 +1,7 @@
 .root {
   min-height: 100vh;
 }
+
+.service {
+  padding: 0 60px;
+}
