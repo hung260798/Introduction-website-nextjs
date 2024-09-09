@@ -1,0 +1,145 @@
+.bg {
+  background-color: #363940;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.bg.second {
+  top: 70px;
+  /* display: none; */
+  height: 0;
+  transition: all 0.2s ease-in;
+  overflow: hidden;
+}
+
+.bg .root .logoLink {
+  border: 0px solid white;
+}
+
+.root {
+  display: flex;
+  height: 70px;
+  line-height: 70px;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.root ul a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  display: block;
+  padding: 0;
+  border-top: 3px solid #363940;
+}
+
+.root a.current,
+.root a:hover {
+  border-top: 3px solid #fff;
+}
+
+.root ul,
+.root li {
+  list-style: none;
+  padding: 0 15px;
+  margin: 0;
+}
+
+.root ul {
+  display: flex;
+  background-color: inherit;
+  color: #ffffff;
+}
+
+.root a {
+  height: 70px;
+}
+
+.navToggler {
+  display: none;
+}
+
+.vertMenu {
+  line-height: inherit;
+  background-color: inherit;
+  padding: 0 20px;
+}
+
+.vertMenu ul {
+  margin: 0;
+  padding: 0 15px;
+  list-style: none;
+  background-color: #676d75;
+}
+
+.vertMenu ul a {
+  padding: 15px;
+  text-decoration: none;
+  color: #ccc6c6;
+  text-transform: uppercase;
+  display: block;
+}
+
+.vertMenu ul a.current,
+.vertMenu ul a:hover {
+  color: #ffffff;
+  border-bottom: 0px solid #ffffff;
+  font-weight: 600;
+}
+
+.hori {
+  display: block;
+}
+
+.navToggler {
+  display: none;
+  /* height: 56px;  */
+  /* width: 56px; */
+  position: relative;
+  margin-right: 20px;
+}
+
+.navToggler .centerdiv {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.iconBar {
+  background-color: #e6e6e6;
+  width: 24px;
+  height: 4px;
+  display: block;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+.show {
+  /* display: none; */
+  display: block;
+  height: 0;
+}
+
+@media (max-width: 900px) {
+  .navToggler {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hori {
+    display: none;
+  }
+
+  .show {
+    display: block;
+  }
+
+  .bg.second.show {
+    display: block;
+    height: 300px;
+  }
+}
