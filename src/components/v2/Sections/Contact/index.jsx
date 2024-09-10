@@ -51,6 +51,7 @@ export default function Page() {
             </h3>
             <form action="">
               <Input type="text" name={"name"} placeholder={"Your name"} />
+              <Input type="text" name={"surname"} placeholder={"Your  surname"} />
               <Input type="email" name={"email"} placeholder={"Email"} />
               <Input type="textarea" name={"message"} placeholder={"Message"} />
               <button className={classNames(styles.btn)}>Submit</button>
