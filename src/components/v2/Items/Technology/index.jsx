@@ -4,10 +4,10 @@ import React from "react";
 import classNames from "classnames";
 import styles from "./styles.module.css";
 import { inter } from "@/utils/fonts";
-import { useInViewPort } from "@/hooks/viewport";
+import { useInViewPort, useObserver } from "@/hooks/viewport";
 
-export default function TechItem({ icon, name }) {
-  const { isInViewPort, elemRef } = useInViewPort({ fullyIn: false });
+export default function TechItem({ icon, name, delay = 0.0 }) {
+  const { isInViewPort, elemRef } = useObserver();
   return (
     <div
       className={classNames(
@@ -17,11 +17,13 @@ export default function TechItem({ icon, name }) {
           ? classNames(
               "animate__animated",
               "animate__slideInLeft",
-              "animate__slow"
             )
           : ""
       )}
       ref={elemRef}
+      style={{
+        visibility: isInViewPort ? "visible" : "hidden",
+      }}
     >
       <span>
         <img src={icon} alt="icon" className={classNames(styles.techIcon)} />

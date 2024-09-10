@@ -20,12 +20,7 @@ export default function Home() {
       <div>
         <PageHeader />
         <main
-          data-bs-spy="scroll"
-          data-bs-target="#page-navbar"
-          data-bs-root-margin="0px 0px -40%"
-          data-bs-smooth-scroll="true"
           className={classNames(styles.main)}
-          tabIndex={"0"}
         >
           <HomeSection />
           <AboutSection />

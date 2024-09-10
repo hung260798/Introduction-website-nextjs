@@ -28,7 +28,7 @@ export default function useNavigation() {
     });
     intersectionObserver.observe(elemRef.current);
     return () => {
-      intersectionObserver.unobserve(elemRef.current);
+      intersectionObserver.disconnect();
     };
   }, [elemRef]);
 

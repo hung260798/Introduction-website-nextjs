@@ -7,10 +7,11 @@ import styles from "./styles.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import ctx from "@/context/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function NavBar() {
   const t = useTranslations("Menu");
+  const lang = useLocale();
   const items = [
     { name: 0, href: "#home" },
     { name: 1, href: "#about" },
@@ -24,6 +25,7 @@ export default function NavBar() {
   const toggle = (e) => {
     setShowingVertMenu((prev) => !prev);
   };
+  const imgDir = "/images";
   const renderItems = items.map(({ href, name }) => (
     <li key={href}>
       <Link
@@ -35,6 +37,21 @@ export default function NavBar() {
       </Link>
     </li>
   ));
+  renderItems.push(
+    <li key={`#envi`}>
+      <Link href={`/${lang === "en" ? "vi" : "en"}`}>
+        <span className={styles.flag}>
+          <Image
+            width={18}
+            height={12}
+            alt="language"
+            src={`${imgDir}/${lang === "en" ? "vi.png" : "en_US.png"}`}
+          />
+        </span>
+        {lang === "en" ? "vi" : "en"}
+      </Link>
+    </li>
+  );
 
   useEffect(() => {
     console.log(currentPos);

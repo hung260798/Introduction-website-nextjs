@@ -4,6 +4,7 @@
   color: #363940;
   display: inline-block;
   margin: 30px 0;
+  padding: 0 15px;
   transition: all 0.2s ease-in-out;
   display: flex;
 }
@@ -40,6 +41,13 @@
   flex: 0 0 auto;
 }
 
+.rotateBoxIcon.big {
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  font-size: 40px;
+}
+
 .root:hover .rotateBoxIcon {
   transform: rotate(0deg);
   -moz-transform: rotate(0deg);
@@ -73,5 +81,15 @@
 }
 
 .desc {
-  font-size: .88em;
+  font-size: 0.88em;
+}
+
+.vertical {
+  flex-direction: column;
+  /* text-align: center; */
+}
+
+.vertical .iconWrapper {
+  text-align: center;
+  margin-bottom: 25px;
 }

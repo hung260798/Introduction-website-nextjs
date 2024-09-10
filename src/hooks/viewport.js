@@ -40,7 +40,7 @@ export function useInViewPort({ fullyIn = true }) {
   return { isInViewPort, elemRef };
 }
 
-export function useObserver() {
+export function useObserver(threshold= 0.25) {
   const [isInViewPort, setIsInViewPort] = useState(false);
   const elemRef = useRef(null);
   useEffect(() => {
@@ -59,7 +59,7 @@ export function useObserver() {
         {
           root: null,
           rootMargin: "10px",
-          threshold: 0.0,
+          threshold: threshold,
         }
       );
       observer.observe(elemRef.current);

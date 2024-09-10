@@ -35,6 +35,7 @@ export default function About() {
                   title={t(`items.${key}.title`)}
                   desc={t(`items.${key}.text`)}
                   animationDelay={key * 0.3}
+                  size="big"
                 />
               </div>
             ))}
@@ -44,15 +45,19 @@ export default function About() {
       <section id="about2" className={classNames(styles.root)}>
         <div className="container pt-4">
           <div className={classNames("mt-4 mb-4", "row")}>
+            <div className="col-md-2"></div>
             {features2.map(({ key }) => (
-              <div className={classNames("col-md-6")} key={key}>
+              <div className={classNames("col-md-4")} key={key}>
                 <RotateBox
                   title={t(`items.${key}.title`)}
                   desc={t(`items.${key}.text`)}
                   animationDelay={key * 0.3}
+                  layout="vertical"
+                  size="big"
                 />
               </div>
             ))}
+            <div className="col-md-2"></div>
           </div>
         </div>
       </section>
