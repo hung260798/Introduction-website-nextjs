@@ -17,7 +17,7 @@ export default function RotateBox({
   desc = "desc",
   layout = "horizontal",
   animationDelay = 0.2,
-  size = "normal"
+  size = "normal",
 }) {
   const animateClass = ["animate__animated", "animate__zoomIn", "visible"];
   // const elemRef = useRef(null);
@@ -39,15 +39,21 @@ export default function RotateBox({
       }}
     >
       <div className={styles.iconWrapper}>
-        <span className={classNames(styles.rotateBoxIcon, {
-          [styles.big]: size === "big"
-        })}>
-          <i className={classNames("fa", icon, styles.fa)}></i>
+        <span
+          className={classNames(styles.rotateBoxIcon, {
+            [styles.big]: size === "big",
+          })}
+        >
+          {typeof icon === "string" ? (
+            <i className={classNames("fa", icon, styles.fa)}></i>
+          ) : (
+            <span className={styles.rotateLeft}>{icon}</span>
+          )}
         </span>
       </div>
       <div className="rotate-box-info">
-        <h4 className={classNames(styles.title)}>{title}</h4> {/* *title */}
-        <p className={classNames(styles.desc)}>{desc}</p> {/* description */}
+        <h4 className={classNames(styles.title)}>{title}</h4> 
+        <p className={classNames(styles.desc)}>{desc}</p>
       </div>
     </div>
   );
