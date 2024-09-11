@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 import { Modal } from '@mui/material';
 import styles from './admin.module.css';
 import Header from './components/Header';
@@ -68,16 +69,64 @@ const AdminPage = () => {
         },
     ];
 
-    const [posts, setPosts] = useState(staticDataPosts);
-    const [comments, setComments] = useState(staticDataComments);
+    const [posts, setPosts] = useState([]);
+    const [comments, setComments] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [commentSearchTerm, setCommentSearchTerm] = useState('');
+    const [filteredPosts, setFilteredPosts] = useState([]);
+    const [filteredComments, setFilteredComments] = useState([]);
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
+    const [postsToDelete, setPostsToDelete] = useState([]);
+    const [selectedPosts, setSelectedPosts] = useState(new Set());
+    const [modalOpen, setModalOpen] = useState(false);
+    const [currentPost, setCurrentPost] = useState({ title: '', image: '', content: '', createdAt: '' });
+    const [modalType, setModalType] = useState(''); // 'add', 'edit', 'view'
 
-    const fetchPosts = () => {
-        setPosts(staticDataPosts);
-        setFilteredPosts(staticDataPosts);
-    }
-    const fetchComments = () => {
-        setComments(staticDataComments);
-        setFilteredComments(staticDataComments);
+    const toggleSidebar = () => {
+        setSidebarOpen(!isSidebarOpen);
+    };
+
+    // const fetchPosts = () => {
+    //     setPosts(staticDataPosts);
+    //     setFilteredPosts(staticDataPosts);
+    // }
+    // const fetchComments = () => {
+    //     setComments(staticDataComments);
+    //     setFilteredComments(staticDataComments);
+    // };
+
+    // const fetchPosts = () => {
+    //     setPosts(staticDataPosts);
+    //     setFilteredPosts(staticDataPosts);
+    // }
+    // const fetchComments = () => {
+    //     setComments(staticDataComments);
+    //     setFilteredComments(staticDataComments);
+    // };
+    const fetchPosts = async () => {
+        try {
+            const response = await axios.get('http://localhost:5167/api/bai-viets/');
+            setPosts(response.data.data);
+            setFilteredPosts(response.data.data);
+            setLoading(false);
+        } catch (err) {
+            setError(err);
+            setLoading(false);
+        }
+    };
+
+    const fetchComments = async () => {
+        try {
+            const response = await axios.get('http://localhost:5167/api/email/');
+            setComments(response.data.data);
+            setFilteredComments(response.data.data);
+            setLoading(false);
+        } catch (err) {
+            setError(err);
+            setLoading(false);
+        }
     };
 
     useEffect(() => {
@@ -91,19 +140,19 @@ const AdminPage = () => {
         if (activeSection === 'checkComment') {
             fetchComments();
         }
+        if (activeSection === 'managePosts') {
+            fetchPosts();
+        }
     }, [activeSection]);
 
-    const toggleSidebar = () => {
-        setSidebarOpen(!isSidebarOpen);
-    };
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
-    const [searchTerm, setSearchTerm] = useState('');
-    const [commentSearchTerm, setCommentSearchTerm] = useState('');
-    const [filteredPosts, setFilteredPosts] = useState([]);
-    const [filteredComments, setFilteredComments] = useState([]);
-    const [showConfirmModal, setShowConfirmModal] = useState(false);
-    const [postsToDelete, setPostsToDelete] = useState([]);
-    const [selectedPosts, setSelectedPosts] = useState(new Set());
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
+
 
     const handlePostSearch = () => {
         setFilteredPosts(
@@ -118,7 +167,7 @@ const AdminPage = () => {
     const handleCommentSearch = () => {
         setFilteredComments(
             comments.filter(comment =>
-                comment.email.toLowerCase().includes(commentSearchTerm.toLowerCase()) ||
+                comment.emailuser.toLowerCase().includes(commentSearchTerm.toLowerCase()) ||
                 comment.content.toLowerCase().includes(commentSearchTerm.toLowerCase()) ||
                 comment.name.toLowerCase().includes(commentSearchTerm.toLowerCase()) ||
                 comment.surname.toLowerCase().includes(commentSearchTerm.toLowerCase()) ||
@@ -127,10 +176,6 @@ const AdminPage = () => {
         );
     };
 
-    const [modalOpen, setModalOpen] = useState(false);
-    const [currentPost, setCurrentPost] = useState({ title: '', image: '', content: '', createdAt: '' });
-    const [modalType, setModalType] = useState(''); // 'add', 'edit', 'view'
-
     const renderContent = () => {
         switch (activeSection) {
             case 'managePosts':
@@ -138,7 +183,7 @@ const AdminPage = () => {
                     <ContentPost
                         posts={filteredPosts.length > 0 ? filteredPosts : []}
                         handleDelete={handleDelete}
-                        handleDeleteMultiple={handleDeleteMultiple} 
+                        handleDeleteMultiple={handleDeleteMultiple}
                         openEditModal={openEditModal}
                         openViewModal={openViewModal}
                         selectedPosts={selectedPosts}
@@ -180,7 +225,23 @@ const AdminPage = () => {
         setCurrentPost({ title: '', image: '', content: '', createdAt: '' });
     };
 
-    const handleAdd = () => {
+    const validatePostData = (postData) => {
+        const { title, content, image } = postData;
+    
+        if (!title || title.trim() === '') {
+            return 'Tiêu đề không được để trống.';
+        }
+        if (!content || content.trim() === '') {
+            return 'Nội dung không được để trống.';
+        }
+        if (!image || image.trim() === '') {
+            return 'Hình ảnh không được để trống.';
+        }
+    
+        return
+    };
+
+    const handleAdd = async () => {
         const newPost = {
             id: Date.now(),
             title: currentPost.title,
@@ -188,12 +249,50 @@ const AdminPage = () => {
             content: currentPost.content,
             createdAt: new Date().toISOString(),
         };
-        setPosts((prevPosts) => [...prevPosts, newPost]);
-        setFilteredPosts((prevFiltered) => [...prevFiltered, newPost]);
-        closeModal();
+
+        const errorMessage = validatePostData(newPost);
+        if (errorMessage) {
+            alert(errorMessage);
+            return;
+        }
+        try {
+            // Gọi API để thêm bài viết
+            const response = await axios.post('http://localhost:5167/api/bai-viets/', newPost);
+
+            // Cập nhật state với bài viết mới
+            // setPosts((prevPosts) => [...prevPosts, response.data]);
+            // setFilteredPosts((prevFiltered) => [...prevFiltered, response.data]);
+            fetchPosts();
+            closeModal();
+        } catch (error) {
+            console.error('Error adding post:', error);
+        }
     };
 
-    const handleSave = () => {
+    const handleSave = async () => {
+
+        const errorMessage = validatePostData(currentPost);
+        if (errorMessage) {
+            alert(errorMessage);
+            return;
+        }
+
+        try {
+            // Gọi API để cập nhật bài viết
+            const response = await axios.put(`http://localhost:5167/api/bai-viets/${currentPost.id}`, currentPost);
+
+            // Cập nhật state với bài viết đã được sửa
+            // setPosts((prevPosts) =>
+            //     prevPosts.map(post => (post.id === currentPost.id ? response.data : post))
+            // );
+            // setFilteredPosts((prevFiltered) =>
+            //     prevFiltered.map(post => (post.id === currentPost.id ? response.data : post))
+            // );
+            fetchPosts();
+            closeModal();
+        } catch (error) {
+            console.error('Error updating post:', error);
+        }
         setPosts(posts.map(post => (post.id === currentPost.id ? currentPost : post)));
         setFilteredPosts(filteredPosts.map(post => (post.id === currentPost.id ? currentPost : post)));
         closeModal();
@@ -209,12 +308,28 @@ const AdminPage = () => {
         setShowConfirmModal(true);
     };
 
-    const confirmDelete = () => {
-        setPostsToDelete([]);
-        setPosts(posts.filter(post => !postsToDelete.includes(post.id)));
-        setFilteredPosts(filteredPosts.filter(post => !postsToDelete.includes(post.id)));
-        setSelectedPosts(new Set());
-        setShowConfirmModal(false);
+    const confirmDelete = async () => {
+        try {
+            // Gọi API để xóa các bài viết
+            await Promise.all(
+                postsToDelete.map(id => 
+                    axios.delete(`http://localhost:5167/api/bai-viets/${id}`)
+                )
+            );
+            setPosts(posts.filter(post => !postsToDelete.includes(post.id)));
+            setFilteredPosts(filteredPosts.filter(post => !postsToDelete.includes(post.id)));
+            setSelectedPosts(new Set());
+        } catch (error) {
+            console.error('Error deleting posts:', error);
+        } finally {
+            setPostsToDelete([]);
+            setShowConfirmModal(false);
+        }
+        // setPostsToDelete([]);
+        // setPosts(posts.filter(post => !postsToDelete.includes(post.id)));
+        // setFilteredPosts(filteredPosts.filter(post => !postsToDelete.includes(post.id)));
+        // setSelectedPosts(new Set());
+        // setShowConfirmModal(false);
     };
 
     const cancelDelete = () => {
@@ -223,11 +338,18 @@ const AdminPage = () => {
     };
 
     const handleReloadPosts = () => {
-        setFilteredPosts(posts);
+        fetchPosts();
     };
 
     const handleReloadComments = () => {
-        setFilteredComments(comments);
+        fetchComments();
+    };
+
+    // Xử lý modal bài viết
+    const formatContent = (content) => {
+        // Thay thế ký tự xuống dòng bằng <br />
+        const formattedContent = content.replace(/\r?\n/g, '<br />');
+        return <div className={styles.modalContentTextView} dangerouslySetInnerHTML={{ __html: formattedContent }} />;
     };
 
 
@@ -315,7 +437,7 @@ const AdminPage = () => {
                 <div className={styles.modalContentView}>
                     <h2 className={styles.modalTitleView}>{currentPost.title}</h2>
                     <img src={currentPost.image} alt={currentPost.title} className={styles.modalImageView} />
-                    <p className={styles.modalContentTextView}>{currentPost.content}</p>
+                    <div className={styles.modalContentTextViewWrapper}>{formatContent(currentPost.content)}</div>
                     <p className={styles.modalTimestampView}>Thời gian tạo: {currentPost.createdAt}</p>
                     <div className={styles.modalButtonGroup}>
                         <button onClick={closeModal} className={`${styles.modalButton} ${styles.modalButtonPrimary} ${styles.modalButtonView}`}>Đóng</button>
