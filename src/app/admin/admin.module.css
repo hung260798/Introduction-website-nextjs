@@ -482,6 +482,8 @@
     font-size: 24px;
     margin-bottom: 15px;
     font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 .modalImageView {
@@ -492,27 +494,35 @@
 }
 
 .modalContentTextView {
-    font-size: 16px;
+    margin: 4px 0;
+    font-size: 13px;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.modalContentTextViewWrapper {
+    padding: 0 3px;
     margin-bottom: 15px;
     max-height: 300px;
     overflow-y: auto;
 }
 
-.modalContentTextView::-webkit-scrollbar {
+.modalContentTextViewWrapper::-webkit-scrollbar {
     width: 4px;
 }
 
-.modalContentTextView:-webkit-scrollbar-track {
+.modalContentTextViewWrapper:-webkit-scrollbar-track {
     background: #fff;
     border-radius: 2px;
 }
 
-.modalContentTextView::-webkit-scrollbar-thumb {
+.modalContentTextViewWrapper::-webkit-scrollbar-thumb {
     background: #dfdfdf;
     border-radius: 2px;
 }
 
-.modalContentTextView::-webkit-scrollbar-thumb:hover {
+.modalContentTextViewWrapper::-webkit-scrollbar-thumb:hover {
     background: #cccccc;
 }
 
