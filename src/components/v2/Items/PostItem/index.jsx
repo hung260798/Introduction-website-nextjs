@@ -5,7 +5,15 @@ import React from "react";
 import styles from "./styles.module.css";
 import Link from "next/link";
 
-export default function PostItem({ cover, title, content, postTime, style }) {
+export default function PostItem({
+  id,
+  cover,
+  title,
+  content,
+  postTime,
+  style,
+}) {
+  let contentPreview = `${content}`.slice(0, 200)
   return (
     <div className={styles.root}>
       <div className={styles.coverDiv}>
@@ -13,12 +21,12 @@ export default function PostItem({ cover, title, content, postTime, style }) {
       </div>
       <div className={styles.contentDiv}>
         <h4 className={styles.title}>
-          <Link href="#">{title}</Link>
+          <Link href={`/en/posts/${id}`}>{title}</Link>
         </h4>
         <div className={styles.postTime}>{postTime}</div>
-        <p className={styles.content}>{content}...</p>
+        <p className={styles.content}>{contentPreview}...</p>
         <div className={styles.readMore}>
-          <Link href={"#"}>Read more</Link>
+          <Link href={`/en/posts/${id}`}>Read more</Link>
         </div>
       </div>
     </div>

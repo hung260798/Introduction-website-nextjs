@@ -74,7 +74,7 @@ export default function Footer() {
           <div className={`${styles.btt}`}>
             <Link
               className={`${styles.backToTop}`}
-              href="/#home"
+              href="#home"
               title="Back To Top"
               ref={bttRef}
             >

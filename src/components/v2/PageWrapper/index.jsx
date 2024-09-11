@@ -2,7 +2,7 @@
 
 import Footer from "@/components/v2/Footer";
 import PageHeader from "@/components/v2/Sections/Header";
-import ctx from "@/context/navigation";
+import NavigationContext from "@/context/navigation";
 import { currentPosition, reducer } from "@/reducers/positionReducer";
 import { useReducer } from "react";
 import styles from "./styles.module.css";
@@ -10,7 +10,7 @@ import styles from "./styles.module.css";
 export default function Wrapper({ children }) {
   const [currentPos, dispatch] = useReducer(reducer, currentPosition);
   return (
-    <ctx.Provider value={{ currentPos, dispatch }}>
+    <NavigationContext.Provider value={{ currentPos, dispatch }}>
       <div className={styles.root}>
         <div className={styles.headerWrap}>
           <PageHeader />
@@ -20,6 +20,6 @@ export default function Wrapper({ children }) {
           <Footer />
         </div>
       </div>
-    </ctx.Provider>
+    </NavigationContext.Provider>
   );
 }
