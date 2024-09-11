@@ -35,11 +35,11 @@ export default function About() {
   return (
     <React.Fragment>
       <section id="about" ref={sectionRef} >
-        <div className="container pt-4">
+        <div className={`container pt-4 ${styles.aboutContainer}`}>
           <div className={classNames("mt-4 mb-4")}>
             <SectionHeader title={t("title")} subtitle={t("subtitle")} />
           </div>
-          <div className={classNames("mt-4 mb-4", "row")}>
+          <div className={classNames("mt-4 mb-4", "row", `${styles.row1Wrapper}`)}>
             {features.map(({ key, icon }) => (
               <div className={classNames("col-12 col-sm-6 col-md-4")} key={key}>
                 <RotateBox
@@ -55,7 +55,7 @@ export default function About() {
         </div>
       </section>
       <section id="about2" className={classNames(styles.root)}>
-        <div className="container pt-4">
+        <div className={`container pt-4 ${styles.about2Container}`}>
           <div className={classNames("mt-4 mb-4", "row")}>
             <div className="col-md-2"></div>
             {features2.map(({ key, icon }) => (

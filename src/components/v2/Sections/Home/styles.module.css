@@ -28,11 +28,14 @@
 }
 
 .btn {
-  background-color: #106cce;
-  border: 1px solid #106cce;
+  background-color: #279dd7;
+  border: 1px solid #279dd7;
   padding: 10px;
   color: #fff;
+  margin-right: 10px;
   text-transform: uppercase;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: 600;
 }
 
 .btn:hover {
@@ -45,21 +48,37 @@
   padding: 10px;
   color: #fff;
   text-transform: uppercase;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .btn2:hover {
-  border-color: black;
+  background-color: #ffffff;
+  color: black;
 }
 
 .title {
   color: #ffffff;
   font-weight: 700;
-  font-size: 4em;
+  font-size: 5em;
+  letter-spacing: 5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .subtitle {
-  color: #fff;
+  font-size: 25px;
   font-style: italic;
+  letter-spacing: 0.4px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: 300;
+  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
+  margin-left: 100px;
+  margin-right: 100px;
+  
 }
 
 .root {
