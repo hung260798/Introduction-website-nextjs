@@ -27,7 +27,7 @@ const ContentComment = ({ comments }) => {
                                 <tr key={comment.id}>
                                     <td>{comment.name}</td>
                                     <td>{comment.surname}</td>
-                                    <td>{comment.email}</td>
+                                    <td>{comment.emailuser}</td>
                                     <td>{comment.content}</td>
                                     <td>{comment.createdAt}</td>
                                 </tr>
