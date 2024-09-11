@@ -5,11 +5,7 @@ import styles from "./styles.module.css";
 import classNames from "classnames";
 import { roboto } from "@/utils/fonts";
 import "animate.css";
-import {
-  useInViewPort,
-  isInViewPortPartially as inViewPortChecker,
-  useObserver,
-} from "@/hooks/viewport";
+import { useObserver } from "@/hooks/viewport";
 
 export default function RotateBox({
   icon = "fa-pie-chart",
@@ -52,7 +48,7 @@ export default function RotateBox({
         </span>
       </div>
       <div className="rotate-box-info">
-        <h4 className={classNames(styles.title)}>{title}</h4> 
+        <h4 className={classNames(styles.title)}>{title}</h4>
         <p className={classNames(styles.desc)}>{desc}</p>
       </div>
     </div>

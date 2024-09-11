@@ -6,7 +6,7 @@ import TechItem from "../../Items/Technology";
 import styles from "./styles.module.css";
 import SectionHeader from "../../SectionHeader";
 import { useTranslations } from "next-intl";
-import { useInViewPort } from "@/hooks/viewport";
+import { useObserver } from "@/hooks/viewport";
 import useNavigation from "@/hooks/navigationHook";
 
 export default function Technologies() {
@@ -20,7 +20,7 @@ export default function Technologies() {
     "animate__slow",
     "visible",
   ];
-  const { isInViewPort, elemRef } = useInViewPort({ fullyIn: true });
+  const { isInViewPort, elemRef } = useObserver();
   const technologies = {
     backend: [
       { icon: "csharp.svg", name: ".NET", key: 0 },

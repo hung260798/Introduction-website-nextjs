@@ -4,7 +4,7 @@ import React from "react";
 import classNames from "classnames";
 import styles from "./styles.module.css";
 import { inter } from "@/utils/fonts";
-import { useInViewPort, useObserver } from "@/hooks/viewport";
+import {  useObserver } from "@/hooks/viewport";
 
 export default function TechItem({ icon, name, delay = 0.0 }) {
   const { isInViewPort, elemRef } = useObserver();

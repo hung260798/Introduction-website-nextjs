@@ -9,7 +9,7 @@ export default function useNavigation() {
       if (entry.isIntersecting) {
         dispatch({
           type: "set",
-          href: `#${entry.target.id}`,
+          href: `/#${entry.target.id}`,
         });
       }
     });

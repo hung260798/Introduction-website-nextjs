@@ -4,8 +4,8 @@ import NavBar from "../../NavBar";
 
 export default function PageHeader() {
   return (
-    <div>
+    <header>
       <NavBar />
-    </div>
+    </header>
   );
 }

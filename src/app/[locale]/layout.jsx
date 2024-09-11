@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+
 import "./globals.css";
 import { open_sans } from "@/utils/fonts";
 import { NextIntlClientProvider } from "next-intl";
@@ -7,7 +7,6 @@ import Script from "next/script";
 import "/public/libs/bootstrap/css/bootstrap.min.css";
 import React from "react";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",

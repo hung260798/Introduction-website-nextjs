@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+.contentWrap {
+  flex: 1 1 0%;
+  margin-top: 70px;
+  min-height: 80vh;
+}
+
+.headerWrap, .footerWrap {
+  flex: 0 0 auto;
+}

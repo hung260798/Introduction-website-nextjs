@@ -1,15 +1,16 @@
 "use client"
 import { open_sans, raleway } from "@/utils/fonts";
 import { useDeviceType } from "@/hooks/device";
-import { useInViewPort, isInViewPortFully as inViewPortChecker } from "@/hooks/viewport";
+import { useObserver } from "@/hooks/viewport";
 import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.css";
 import React from "react";
+import Link from "next/link";
 
 export default function Footer() {
   const bttRef = useRef(null);
   const [isAnimating, setIsAnimating] = useState(false);
-  const isVisited = useInViewPort({elemRef: bttRef, inViewPortChecker});
+  const isVisited = useObserver();
   // const animationDuration = 2000; //2s
   const isDesktop = useDeviceType() === "Desktop";
   
@@ -71,9 +72,9 @@ export default function Footer() {
       <div className={`${styles.siteInfo} ${open_sans.className}`}>
         <div className={`container ${styles.container} ${styles.resize}`}>
           <div className={`${styles.btt}`}>
-            <a
+            <Link
               className={`${styles.backToTop}`}
-              href="#page"
+              href="/#home"
               title="Back To Top"
               ref={bttRef}
             >
@@ -84,7 +85,7 @@ export default function Footer() {
                   setIsAnimating(false);
                 }}
               ></i>
-            </a>
+            </Link>
           </div>
           Copyright © 2024 BKHIGHTECH
           <span> – </span>

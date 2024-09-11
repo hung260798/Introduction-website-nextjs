@@ -47,7 +47,7 @@ export default function PostsSection() {
         </div>
       </div>
       <div className={styles.footerDiv}>
-        <Link href={"#"}>View all posts</Link>
+        <Link href={"/en/posts"}>View all posts</Link>
       </div>
     </section>
   );
