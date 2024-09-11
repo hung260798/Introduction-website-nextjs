@@ -24,10 +24,10 @@ export default function PostItem({
           <Link href={`/en/posts/${id}`}>{title}</Link>
         </h4>
         <div className={styles.postTime}>{postTime}</div>
-        <p className={styles.content}>{contentPreview}...</p>
+        {/* <p className={styles.content}>{contentPreview}...</p>
         <div className={styles.readMore}>
           <Link href={`/en/posts/${id}`}>Read more</Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );

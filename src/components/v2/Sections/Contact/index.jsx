@@ -9,17 +9,17 @@ import styles from "./styles.module.css";
 import { useTranslations } from "next-intl";
 import useNavigation from "@/hooks/navigationHook";
 import { useForm } from "react-hook-form";
+import { emailApi } from "@/utils/api";
 
 export default function Page() {
   const t = useTranslations("Contact");
   const elemRef = useNavigation();
   const { register, handleSubmit } = useForm();
-  const api = "";
   const onSubmit = async (data) => {
     try {
       const headers = new Headers();
       headers.append("Content-Type", "application/json");
-      const rawResponse = await fetch(api, {
+      const rawResponse = await fetch(`${emailApi}/createdata`, {
         method: "POST",
         body: JSON.stringify(data),
         headers,
@@ -82,15 +82,15 @@ export default function Page() {
               />
               <Input
                 type="email"
-                name={"email"}
+                name={"emailuser"}
                 placeholder={"Email"}
-                {...register("email")}
+                {...register("emailuser")}
               />
               <Input
                 type="textarea"
-                name={"message"}
+                name={"content"}
                 placeholder={"Message"}
-                {...register("message")}
+                {...register("content")}
               />
               <button type="submit" className={classNames(styles.btn)}>
                 Submit
