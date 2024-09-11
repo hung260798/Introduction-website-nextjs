@@ -34,7 +34,7 @@ export default function About() {
   ];
   return (
     <React.Fragment>
-      <section id="about" ref={sectionRef} className={styles.root}>
+      <section id="about" ref={sectionRef} >
         <div className="container pt-4">
           <div className={classNames("mt-4 mb-4")}>
             <SectionHeader title={t("title")} subtitle={t("subtitle")} />
@@ -53,8 +53,8 @@ export default function About() {
             ))}
           </div>
         </div>
-      {/* </section> */}
-      {/* <section id="about2" className={classNames(styles.root)}> */}
+      </section>
+      <section id="about2" className={classNames(styles.root)}>
         <div className="container pt-4">
           <div className={classNames("mt-4 mb-4", "row")}>
             <div className="col-md-2"></div>

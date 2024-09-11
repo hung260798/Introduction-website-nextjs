@@ -34,7 +34,7 @@ export default async function PostsSection() {
   //   },
   // ];
 
-  let rawReponse = await fetch(`${postApi}/getdata`);
+  let rawReponse = await fetch(`${postApi}`);
   let response = await rawReponse.json();
   const posts = response.data;
 

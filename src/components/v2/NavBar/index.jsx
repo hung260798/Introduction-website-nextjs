@@ -13,12 +13,12 @@ export default function NavBar() {
   const t = useTranslations("Menu");
   const lang = useLocale();
   const items = [
-    { name: 0, href: "#home" },
-    { name: 1, href: "#about" },
-    { name: 2, href: "#services" },
-    { name: 3, href: "#technologies" },
-    { name: 5, href: "#team"},
-    { name: 6, href: "#contact" },
+    { name: 0, href: "/#home" },
+    { name: 1, href: "/#about" },
+    { name: 2, href: "/#services" },
+    { name: 3, href: "/#technologies" },
+    { name: 5, href: "/#team"},
+    { name: 6, href: "/#contact" },
   ];
   const logo = "/images/Techno7.png";
   const [showingVertMenu, setShowingVertMenu] = useState(false);
