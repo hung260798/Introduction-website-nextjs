@@ -19,7 +19,7 @@ export default function Page() {
     try {
       const headers = new Headers();
       headers.append("Content-Type", "application/json");
-      const rawResponse = await fetch(`${emailApi}/createdata`, {
+      const rawResponse = await fetch(`${emailApi}`, {
         method: "POST",
         body: JSON.stringify(data),
         headers,
