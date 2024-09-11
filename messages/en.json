@@ -1,0 +1,113 @@
+{
+  "Menu": [
+        "Home",
+        "About",
+        "Services",
+        "Technologies",
+        "Customers",
+        "Team",
+        "Contact"
+    ],
+  "HomePage": {
+    "title": "We transform businesses of most major sectors with powerful and adaptable digital solutions that satisfy the needs of today.",
+    "links": ["our services", "get started"]
+  },
+  "About": {
+    "subtitle": "our company",
+    "title": "About us",
+    "description": [
+      "We provide creative solutions to clients around the world,",
+      "deliver excellence in all aspects of our work, from development to customer service,",
+      "and to be recognized as a leader in the software industry."
+    ],
+    "items": [
+      {
+        "title": "Innovation",
+        "text": "The company places a high value on continuously seeking new and creative solutions to meet the needs of its customers and stay ahead in the rapidly changing software industry."
+      },
+      {
+        "title": "Customer Focused",
+        "text": "The company prioritizes understanding and meeting the needs of its customers, consistently delivering products and services that exceed their expectations."
+      },
+      {
+        "title": "Continuous Improvement",
+        "text": "The company values a culture of continuous learning and improvement, encouraging its employees to continuously grow and develop their skills, and continuously improving its processes, products, and services."
+      },
+      {
+        "title": "Our Vision",
+        "text": "To empower businesses and individuals globally by delivering innovative, user-friendly software solutions that simplify and enhance their daily operations, while continuously improving the lives and experiences of our customers, employees, and community."
+      },
+      {
+        "title": "Our Mission",
+        "text": "Our mission is to provide innovative, user-centered software solutions that meet the needs of our customers and improve their experiences. We strive to create a positive impact in the world through our products while fostering a culture of continuous learning, collaboration, and diversity within our company."
+      }
+    ]
+  },
+  "Services": {
+    "subtitle": "what we do",
+    "title": "services",
+    "description": [
+      "We offer web, mobile, enterprise, and outsourcing development services",
+      "to help clients achieve their business goals."
+    ],
+    "items": [
+      {
+        "title": "web development",
+        "description": "We design, build, and maintain websites and web applications for clients, providing front-end and back-end development, hosting, optimization, and security services. Our web development services aim to help clients establish a strong online presence to support their business goals."
+      },
+      {
+        "title": "MOBILE DEVELOPMENT",
+        "description": "We design, build, and maintain mobile applications for iOS and Android platforms. Our services include features like push notifications, social media integration, and in-app purchases. We also offer optimization and security to ensure a seamless and secure user experience for clients’ mobile presence."
+      },
+      {
+        "title": "ENTERPRISE DEVELOPMENT",
+        "description": "We build and maintain large-scale, mission-critical software applications for businesses, providing scalability, security, and business process automation. Our enterprise development services aim to help clients achieve their business objectives through cloud deployment, integration with other enterprise systems, and ongoing support and maintenance."
+      },
+      {
+        "title": "OUTSOURCING DEVELOPMENT",
+        "description": "We build and maintain remote software applications for businesses, adhering to clients’ requirements and deadlines. Our outsourcing services help clients reduce costs, increase efficiency, and achieve their business objectives."
+      }
+    ]
+  },
+  "Technologies": {
+    "subtitle": "our technologies",
+    "title": "Technologies",
+    "description": [
+      "Our core technologies include back-end technologies such as .NET, PHP, NodeJS & Ruby.",
+      "Front-end technologies such as React, Angular, and Vue.js,",
+      "and React Native as core mobile technology."
+    ],
+    "items": ["server-side", "client-side", "other"]
+  },
+  "Customers": {
+    "subtitle": "our customers",
+    "title": "Customers",
+    "description": "Our company serves a wide range of customers and is committed to providing exceptional products and services."
+  },
+  "Team": {
+    "subtitle": "our team",
+    "title": "team member",
+    "description": [
+      "Our company has experienced IT consultants who provide quality advice and guidance to clients on various technology-related matters to help them achieve their business objectives.",
+      "Beside that, we have a team of experienced software engineers who provide quality software development services to clients."
+    ]
+  },
+  "Contact": {
+    "subtitle": "Contact us",
+    "title": "Get in touch",
+    "content": [
+      "We are a software company that specializes in creating custom software solutions for businesses of all sizes. Our team of experienced developers can help you create the perfect solution to fit your business needs.",
+      "We offer a wide range of services, including web and mobile development, database design, and more. Contact us today to get started!"
+    ],
+    "form": {
+      "labels": {
+        "name": "name",
+        "firstName": "first",
+        "lastName": "last",
+        "email": "email",
+        "commentOrMessage": "comment or message"
+      },
+      "submitButton": "submit"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+
+
+* {
+  border-radius: 0 !important;
+}
+
+@media (min-width: 1400px) {
+  .container {
+    padding-left: 90px;
+    padding-right: 90px;
+  }
+}
+
