@@ -53,9 +53,6 @@ export default function NavBar() {
     </li>
   );
 
-  useEffect(() => {
-    console.log(currentPos);
-  }, [currentPos]);
 
   useEffect(() => {
     if (!window) {
