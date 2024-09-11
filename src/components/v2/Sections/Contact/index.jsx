@@ -38,7 +38,7 @@ export default function Page() {
     >
       <div className={`${styles.cover}`}></div>
       <div className={classNames("container", styles.contentWrap)}>
-        <SectionHeader title={t("title")} subtitle={t("subtitle")} />
+        <SectionHeader title={t("title")} subtitle={t("subtitle")} animate={false} />
         <div className={classNames("row", styles.content)}>
           <div className={classNames("col-md-6 mb-4 mb-md-0")}>
             <h3

@@ -1,0 +1,20 @@
+.root {
+  background-color: rgb(244, 243, 243);
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+.sectionContent {
+  padding-top: 3em;
+}
+
+.footerDiv a {
+  font-style: italic;
+  text-decoration: none;
+  color: #444;
+}
+
+.footerDiv {
+  text-align: right;
+  padding-right: 8em;
+}

@@ -1,0 +1,40 @@
+.root a {
+  text-decoration: none;
+  color: #444;
+}
+
+.root {
+  padding: 1em;
+}
+
+.coverDiv {
+}
+
+.coverDiv img {
+  width: 100%;
+  height: auto;
+}
+
+.textDiv {
+  /* padding: 1em; */
+  margin-top: 1em;
+}
+
+.textDiv .postTime {
+  text-align: right;
+  font-size: 12px;
+}
+
+.textDiv .content {
+  font-size: 14px;
+}
+
+.textDiv .readMore {
+  text-align: left;
+  font-style: italic;
+}
+
+.textDiv .title a {
+  text-decoration: none;
+  color: #444;
+}

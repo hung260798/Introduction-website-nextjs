@@ -6,7 +6,7 @@ import styles from "./styles.module.css";
 import classNames from "classnames";
 import { useInViewPort, useObserver } from "@/hooks/viewport";
 
-export default function SectionHeader({ title, subtitle, lightText = false }) {
+export default function SectionHeader({ title, subtitle, lightText = false, animate = true }) {
   // const { isInViewPort, elemRef } = useInViewPort({ fullyIn: true });
   const { isInViewPort, elemRef } = useObserver();
   return (
@@ -15,11 +15,11 @@ export default function SectionHeader({ title, subtitle, lightText = false }) {
         "container-xxl text-center",
         styles.root,
         roboto.className,
-        isInViewPort ? classNames("animate__animated", "animate__fadeInUp") : ""
+        (isInViewPort && animate) ? classNames("animate__animated", "animate__fadeInUp") : ""
       )}
       ref={elemRef}
       style={{
-        visibility: isInViewPort ? "visible" : "hidden",
+        visibility: (isInViewPort || !animate) ? "visible" : "hidden",
       }}
     >
       <div>

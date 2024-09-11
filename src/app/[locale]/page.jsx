@@ -12,6 +12,7 @@ import classNames from "classnames";
 import ctx from "@/context/navigation";
 import { currentPosition, reducer } from "@/reducers/positionReducer";
 import Footer from "@/components/v2/Footer";
+import PostsSection from "@/components/v2/Sections/Posts";
 
 export default function Home() {
   const [currentPos, dispatch] = useReducer(reducer, currentPosition);
@@ -19,13 +20,12 @@ export default function Home() {
     <ctx.Provider value={{ currentPos, dispatch }}>
       <div>
         <PageHeader />
-        <main
-          className={classNames(styles.main)}
-        >
+        <main className={classNames(styles.main)}>
           <HomeSection />
           <AboutSection />
           <ServicesSection />
           <TechnologiesSection />
+          <PostsSection />
           <ContactSection />
         </main>
         <Footer />
