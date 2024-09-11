@@ -40,6 +40,7 @@
 .root a.current,
 .root a:hover {
   border-top: 3px solid #fff;
+  color: #fff;
 }
 
 .root ul,
@@ -52,7 +53,7 @@
 .root ul {
   display: flex;
   background-color: inherit;
-  color: #ffffff;
+  color: #a9a9a9;
 }
 
 .root a {
