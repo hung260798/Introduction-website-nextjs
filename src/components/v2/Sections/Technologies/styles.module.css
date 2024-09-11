@@ -1,0 +1,13 @@
+.rootWrapper {
+  background-color: #1c1f25;
+  min-height      : 80vh;
+}
+
+.desc {
+  color: #ffffff;
+}
+
+.techListTitle {
+  text-align: center;
+  color     : #fff;
+}

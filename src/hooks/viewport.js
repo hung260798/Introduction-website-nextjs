@@ -1,9 +1,8 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-export function useInViewPort({
-  elemRef,
-  inViewPortChecker,
-}) {
+export function useInViewPort({ fullyIn = true }) {
+  const elemRef = useRef(null);
+  const inViewPortChecker = fullyIn ? isInViewPortFully : isInViewPortPartially;
   const [isInViewPort, setIsInViewPort] = useState(false);
   const checkAndSet = useCallback(() => {
     if (!elemRef.current) {
@@ -17,7 +16,7 @@ export function useInViewPort({
     if (inViewPortChecker({ top, bottom, wHeight })) {
       setIsInViewPort(true);
     }
-  }, [isInViewPort, elemRef, inViewPortChecker]);
+  }, [isInViewPort, elemRef]);
 
   useEffect(() => {
     checkAndSet();
@@ -38,13 +37,42 @@ export function useInViewPort({
     []
   );
 
-  return isInViewPort;
+  return { isInViewPort, elemRef };
 }
 
-export function isInViewPortPartially({top, bottom, wHeight}) {
+export function useObserver() {
+  const [isInViewPort, setIsInViewPort] = useState(false);
+  const elemRef = useRef(null);
+  useEffect(() => {
+    if (IntersectionObserver) {
+      if (!elemRef.current) {
+        return;
+      }
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.intersectionRatio > 0) {
+              setIsInViewPort(true);
+            }
+          });
+        },
+        {
+          root: null,
+          rootMargin: "10px",
+          threshold: 0.0,
+        }
+      );
+      observer.observe(elemRef.current);
+    }
+  }, [elemRef]);
+
+  return { isInViewPort, elemRef };
+}
+
+export function isInViewPortPartially({ top, bottom, wHeight }) {
   return (0 < top && top < wHeight) || (0 < bottom && bottom < wHeight);
 }
 
-export function isInViewPortFully({top,bottom,wHeight}) {
-  return (0 < top && top < wHeight) && (0 < bottom && bottom < wHeight);
+export function isInViewPortFully({ top, bottom, wHeight }) {
+  return 0 < top && top < wHeight && 0 < bottom && bottom < wHeight;
 }

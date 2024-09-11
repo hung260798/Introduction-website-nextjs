@@ -1,0 +1,25 @@
+.root {
+  display: flex;
+  background-color: rgba(39, 42, 48, 0.6);
+  border: 1px solid #090e18;
+  padding: 20px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.root:hover {
+  box-shadow: inset 0 0 0 1px #33ffcc;
+  background-color: transparent;
+  transform: translateY(-2px);
+}
+
+.techIcon {
+  flex: 0 0 auto;
+  height: 28px;
+  width: 28px;
+  margin-right: 10px;
+}
+
+.techName {
+  line-height: 28px;
+}
