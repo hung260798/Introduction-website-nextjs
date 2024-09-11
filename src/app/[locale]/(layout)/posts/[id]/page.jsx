@@ -4,7 +4,7 @@ import { postApi } from "@/utils/api";
 
 export default async function Page({ params }) {
   const { id } = params;
-  let rawResponse = await fetch(`${postApi}/getdata/${id}`);
+  let rawResponse = await fetch(`${postApi}/${id}`);
   let post = await rawResponse.json();
   let { title, content, image: cover, createdAt: postTime } = post.data;
 
@@ -13,7 +13,7 @@ export default async function Page({ params }) {
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.postTime}>Posted at: {postTime}</p>
       <div className={styles.coverDiv}>
-        <Image
+        <img
           src={cover}
           width={400}
           height={200}
@@ -28,7 +28,7 @@ export default async function Page({ params }) {
 
 export async function generateStaticParams() {
   try {
-    let rawReponse = await fetch(`${postApi}/getdata`);
+    let rawReponse = await fetch(`${postApi}`);
     let response = await rawReponse.json();
     console.log(response);
     return response.data.map((post) => ({ locale:'en', id: `${post.id}` }));

@@ -45,16 +45,22 @@ export default async function PostsSection() {
         <div className="row">
           {posts
             .filter((post, index) => index < 3)
-            .map(({ title, content, cover, postTime, id }, index) => (
-              <div key={id} className={classNames("col col-md-4")}>
-                <PostItem
-                  content={content}
-                  title={title}
-                  cover={"/images/" + cover}
-                  postTime={postTime}
-                />
-              </div>
-            ))}
+            .map(
+              (
+                { title, content, image: cover, createdAt: postTime, id },
+                index
+              ) => (
+                <div key={id} className={classNames("col col-md-4")}>
+                  <PostItem
+                    id={id}
+                    content={content}
+                    title={title}
+                    cover={cover}
+                    postTime={postTime}
+                  />
+                </div>
+              )
+            )}
         </div>
       </div>
       <div className={styles.footerDiv}>

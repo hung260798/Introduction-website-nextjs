@@ -5,36 +5,72 @@
 
 .root {
   padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
+.root.row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+
 .coverDiv {
+  text-align: center;
+  height: 150px;
+  overflow: hidden;
+}
+
+.row .coverDiv {
+  flex: 0 0 20%;
+}
+
+.row .contentDiv {
+  flex: 1 1 70%;
 }
 
 .coverDiv img {
   width: 100%;
   height: auto;
+  min-height: 150px;
+  opacity: 0.8;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -ms-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
 }
 
-.textDiv {
-  /* padding: 1em; */
-  margin-top: 1em;
+.coverDiv img:hover {
+  transform: scale(1.05);
+  opacity: 1;
 }
 
-.textDiv .postTime {
-  text-align: right;
+
+.contentDiv .postTime {
   font-size: 12px;
+  color: #949494;
 }
 
-.textDiv .content {
+.contentDiv .content {
   font-size: 14px;
 }
 
-.textDiv .readMore {
+.contentDiv .readMore {
   text-align: left;
   font-style: italic;
+  /* font-size: 12px; */
 }
 
-.textDiv .title a {
+.contentDiv .title,
+.contentDiv .title * {
+  word-break: break-word;
+  line-break: auto;
+  word-wrap: break-word;
+}
+
+.root .contentDiv .title a {
   text-decoration: none;
-  color: #444;
+  color: #67696c;
 }
