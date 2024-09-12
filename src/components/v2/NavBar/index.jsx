@@ -17,6 +17,7 @@ export default function NavBar() {
     { name: 1, href: "/#about" },
     { name: 2, href: "/#services" },
     { name: 3, href: "/#technologies" },
+    { name: 4, href: "/#customers" },
     { name: 5, href: "/#team"},
     { name: 6, href: "/#contact" },
   ];
@@ -30,7 +31,7 @@ export default function NavBar() {
   const renderItems = items.map(({ href, name }) => (
     <li key={href}>
       <Link
-        href={href}
+        href={`/${lang}${href}`}
         className={classNames({ [styles.current]: href === currentPos.href })}
         onClick={(e) => setShowingVertMenu(false)}
       >
@@ -96,7 +97,7 @@ export default function NavBar() {
         })}
         style={{
           lineHeight: "20px",
-          height: showingVertMenu ? `${renderItems.length * 50}px` : 0,
+          height: showingVertMenu ? `${renderItems.length * 50 + 20}px` : 0,
         }}
       >
         <div className={classNames(styles.vertMenu)}>

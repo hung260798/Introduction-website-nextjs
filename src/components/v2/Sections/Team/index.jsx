@@ -58,7 +58,7 @@ export default function Team() {
     <div className={classNames("mt-4 mb-4", "row", "justify-content-center")}>
       
         {teams.map((team) => (
-          <div key={team.key} ref={elemRef} className={classNames("col-sm-6 col-md-4 col-lg-2")}>
+          <div key={team.key} ref={elemRef} className={classNames("text-center col-sm-6 col-md-4 col-lg-2")}>
             <Image className={styles.image}
               src={team.icon}
               alt={team.name}

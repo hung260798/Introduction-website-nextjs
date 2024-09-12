@@ -7,6 +7,7 @@ import ServicesSection from "@/components/v2/Sections/Services";
 import TechnologiesSection from "@/components/v2/Sections/Technologies";
 import VideoBackgroundSection from "@/components/v2/VideoBackground";
 import TeamSection from "@/components/v2/Sections/Team";
+import CustomerSection from "@/components/v2/Sections/Customers";
 import classNames from "classnames";
 import styles from "./page.module.css";
 
@@ -17,6 +18,7 @@ export default function Home() {
       <AboutSection />
       <ServicesSection />
       <TechnologiesSection />
+      <CustomerSection />
       <PostsSection />
       <VideoBackgroundSection />
       <TeamSection />

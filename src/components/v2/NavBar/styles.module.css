@@ -34,12 +34,14 @@
   display: block;
   padding: 0;
   border-top: 3px solid #363940;
-  font-size: 14px;
+  font-size: 0.92rem;
+  font-weight: 500;
 }
 
 .root a.current,
 .root a:hover {
   border-top: 3px solid #fff;
+  color: #fff;
 }
 
 .root ul,
@@ -52,7 +54,7 @@
 .root ul {
   display: flex;
   background-color: inherit;
-  color: #ffffff;
+  color: #a9a9a9;
 }
 
 .root a {
@@ -82,6 +84,7 @@
   color: #ccc6c6;
   text-transform: uppercase;
   display: block;
+  font-size: 0.92rem;
 }
 
 .vertMenu ul a.current,
@@ -97,8 +100,6 @@
 
 .navToggler {
   display: none;
-  /* height: 56px;  */
-  /* width: 56px; */
   position: relative;
   margin-right: 20px;
 }
@@ -125,7 +126,7 @@
   height: 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .root {
     justify-content: space-between;
   }

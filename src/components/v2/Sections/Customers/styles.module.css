@@ -1,0 +1,15 @@
+.customer {
+    height  : auto;
+    overflow: hidden;
+}
+
+.customer img {
+    width     : 100%;
+    height    : auto;
+    object-fit: cover;
+    transition: all .3s ease;
+}
+
+.customer img:hover {
+    transform: scale(1.3);
+}
