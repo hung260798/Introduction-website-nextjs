@@ -74,7 +74,7 @@ export default function NavBar() {
       <div className={styles.bg}>
         <div className={styles.root}>
           <span>
-            <Link href={"/"} className={styles.logoLink}>
+            <Link href={`/${lang}`} className={styles.logoLink}>
               <Image alt="logo" src={logo} width={150} height={36} />
             </Link>
           </span>

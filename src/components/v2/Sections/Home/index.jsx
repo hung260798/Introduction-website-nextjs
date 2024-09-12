@@ -2,7 +2,6 @@
 
 import classNames from "classnames";
 import Image from "next/image";
-import Link from 'next/link';
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import useNavigation from "@/hooks/navigationHook";
