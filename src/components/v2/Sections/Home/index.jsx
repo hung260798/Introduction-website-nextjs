@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import useNavigation from "@/hooks/navigationHook";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export default function Home() {
   const sectionRef = useNavigation();
