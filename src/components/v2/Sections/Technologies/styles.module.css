@@ -1,15 +1,19 @@
 .rootWrapper {
-  background-color: #1c1f25;
+  background-color:rgb(255, 255, 255);
   min-height: 80vh;
   padding-bottom: 90px;
   padding-top: 50px;
 }
-
 .desc {
-  color: #ffffff;
+  color: #000000;
+}
+.title {
+  font-size: 16px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .techListTitle {
   text-align: center;
-  color     : #fff;
+  color     : #000000;
 }

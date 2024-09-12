@@ -35,8 +35,6 @@ export default function Technologies() {
       { icon: "react.svg", name: "ReactJS", key: 1 },
       { icon: "redux.svg", name: "Redux", key: 2 },
       { icon: "vuejs.svg", name: "VueJS", key: 3 },
-      // { icon: "python.svg", name: "Python", key: 4 },
-      // { icon: "rust.svg", name: "Rust", key: 5 },
     ],
   };
   return (
@@ -46,12 +44,8 @@ export default function Technologies() {
       ref={sectionRef}
     >
       <div className={classNames("container pt-4", styles.root)}>
-        <div className={classNames("mt-4 mb-4")}>
-          <SectionHeader
-            title={t("title")}
-            subtitle={t("subtitle")}
-            lightText={true}
-          />
+        <div className={classNames("mt-4 mb-4", styles.title)}>
+          <SectionHeader title={t("title")} subtitle={t("subtitle")} />
         </div>
         <div
           className={classNames(

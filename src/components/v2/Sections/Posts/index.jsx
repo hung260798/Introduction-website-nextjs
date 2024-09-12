@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { HashLoader } from "react-spinners";
 import styles from "./styles.module.css";
 import PostItem from "../../Items/PostItem";
 import SectionHeader from "../../SectionHeader";
