@@ -30,7 +30,7 @@
   width: 100%;
   background-color: #363940;
   color: #ffffff;
-  padding: .7em;
+  padding: 0.7em;
   border: 1px solid #363940;
   font-size: 14px;
 }
@@ -46,3 +46,29 @@
 .content {
   margin-top: 40px;
 }
+
+.alertWrapper {
+  /* display: none; */
+  position: fixed;
+  top: 100px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  /* height: 200px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* z-index: 12; */
+}
+
+.alert {
+  /* display: none; */
+  /* width: 400px; */
+  width: 200px;
+  font-size: 1rem;
+  z-index: 20;
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+}
+

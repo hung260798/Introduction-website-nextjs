@@ -3,17 +3,20 @@
 import Input from "@/components/v2/Controls/Input";
 import AddressLine from "@/components/v2/Items/AddressLine";
 import SectionHeader from "@/components/v2/SectionHeader";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import styles from "./styles.module.css";
 import { useTranslations } from "next-intl";
 import useNavigation from "@/hooks/navigationHook";
 import { useForm } from "react-hook-form";
 import { emailApi } from "@/utils/api";
+import Alert from "@mui/material/Alert";
+import Fade from "@mui/material/Fade";
 
 export default function Page() {
   const t = useTranslations("Contact");
   const elemRef = useNavigation();
+  const [submitState, setSubmitState] = useState("idle");
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
     try {
@@ -25,10 +28,24 @@ export default function Page() {
         headers,
       });
       const response = await rawResponse.json();
+      if (response.statusCode === 200) {
+        setSubmitState("successful");
+      } else {
+        throw Error(response.message);
+      }
     } catch (error) {
       console.error(error);
+      setSubmitState("fail");
     }
   };
+
+  useEffect(() => {
+    if (submitState !== "idle") {
+      setTimeout(() => {
+        setSubmitState("idle");
+      }, 2000);
+    }
+  }, [submitState]);
 
   return (
     <section
@@ -38,7 +55,11 @@ export default function Page() {
     >
       <div className={`${styles.cover}`}></div>
       <div className={classNames("container", styles.contentWrap)}>
-        <SectionHeader title={t("title")} subtitle={t("subtitle")} animate={false} />
+        <SectionHeader
+          title={t("title")}
+          subtitle={t("subtitle")}
+          animate={false}
+        />
         <div className={classNames("row", styles.content)}>
           <div className={classNames("col-md-6 mb-4 mb-md-0")}>
             <h3
@@ -99,6 +120,29 @@ export default function Page() {
           </div>
         </div>
       </div>
+      <div className={styles.alertWrapper}></div>
+      {/* {submitState === "successful" && ( */}
+      <Fade in={submitState === "successful"}>
+        <Alert
+          className={classNames(styles.alert)}
+          severity="success"
+          variant="filled"
+        >
+          Send Successful!
+        </Alert>
+      </Fade>
+      {/* )} */}
+      {/* {submitState === "fail" && ( */}
+      <Fade in={submitState === "fail"}>
+        <Alert
+          className={classNames(styles.alert)}
+          severity="error"
+          variant="filled"
+        >
+          Send Fail!
+        </Alert>
+      </Fade>
+      {/* )} */}
     </section>
   );
 }
