@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
 
-export default function ErrorPage() {
+export default function Error500() {
   return (
     <div className={styles["main-error-page"]}>
       <svg
