@@ -126,7 +126,7 @@
   height: 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .root {
     justify-content: space-between;
   }

@@ -97,7 +97,7 @@ export default function NavBar() {
         })}
         style={{
           lineHeight: "20px",
-          height: showingVertMenu ? `${renderItems.length * 50}px` : 0,
+          height: showingVertMenu ? `${renderItems.length * 50 + 20}px` : 0,
         }}
       >
         <div className={classNames(styles.vertMenu)}>
