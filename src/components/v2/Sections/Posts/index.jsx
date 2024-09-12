@@ -7,36 +7,36 @@ import Link from "next/link";
 import { postApi } from "@/utils/api";
 
 export default async function PostsSection() {
-  // const posts = [
-  //   {
-  //     id: 1,
-  //     cover: "blogs/blog01.jpg",
-  //     content:
-  //       "We cannot expect people to have respect for laws and orders until we teach respect to those we have entrusted to enforce those laws all the time. we always want to help people cordially.",
-  //     title: "This is Lorem ipsum heading.",
-  //     postTime: "11/9/2024",
-  //   },
-  //   {
-  //     id: 2,
-  //     cover: "blogs/blog01.jpg",
-  //     content:
-  //       "We cannot expect people to have respect for laws and orders until we teach respect to those we have entrusted to enforce those laws all the time. we always want to help people cordially.",
-  //     title: "This is Lorem ipsum heading.",
-  //     postTime: "11/9/2024",
-  //   },
-  //   {
-  //     id: 3,
-  //     cover: "blogs/blog01.jpg",
-  //     content:
-  //       "We cannot expect people to have respect for laws and orders until we teach respect to those we have entrusted to enforce those laws all the time. we always want to help people cordially.",
-  //     title: "This is Lorem ipsum heading.",
-  //     postTime: "11/9/2024",
-  //   },
-  // ];
+  const posts = [
+    {
+      id: 1,
+      cover: "blogs/blog01.jpg",
+      content:
+        "We cannot expect people to have respect for laws and orders until we teach respect to those we have entrusted to enforce those laws all the time. we always want to help people cordially.",
+      title: "This is Lorem ipsum heading.",
+      postTime: "11/9/2024",
+    },
+    {
+      id: 2,
+      cover: "blogs/blog01.jpg",
+      content:
+        "We cannot expect people to have respect for laws and orders until we teach respect to those we have entrusted to enforce those laws all the time. we always want to help people cordially.",
+      title: "This is Lorem ipsum heading.",
+      postTime: "11/9/2024",
+    },
+    {
+      id: 3,
+      cover: "blogs/blog01.jpg",
+      content:
+        "We cannot expect people to have respect for laws and orders until we teach respect to those we have entrusted to enforce those laws all the time. we always want to help people cordially.",
+      title: "This is Lorem ipsum heading.",
+      postTime: "11/9/2024",
+    },
+  ];
 
-  let rawReponse = await fetch(`${postApi}`);
-  let response = await rawReponse.json();
-  const posts = response.data;
+  // let rawReponse = await fetch(`${postApi}`);
+  // let response = await rawReponse.json();
+  // const posts = response.data;
 
   return (
     <section id="posts" className={styles.root}>
