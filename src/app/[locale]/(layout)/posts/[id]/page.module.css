@@ -8,12 +8,45 @@
 .coverDiv {
   align-self: center;
   margin-top: 3rem;
+  text-align: center;
 }
 
 .coverImg {
   /* width: ; */
+  /* height: 300px; */
+  width: 50%;
+  height: auto;
 }
 
 .content {
   margin-top: 4rem;
+  text-align: justify;
+}
+
+.backLink {
+  margin-bottom: 1rem;
+}
+
+.backLink a {
+  text-decoration: none;
+  font-style: italic;
+  color: rgb(75, 75, 75);
+}
+
+.backLink a:hover {
+  color: rgb(159 172 212);
+}
+
+.content {
+  color: rgb(62, 62, 62);
+}
+
+.postTime {
+  font-size: .88rem;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 2.2rem;
+  color: rgb(93, 93, 93);
 }

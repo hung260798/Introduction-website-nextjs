@@ -34,8 +34,8 @@ export default function Page({ params }) {
 
   return (
     <div className={classNames(styles.root, "container")}>
-      <div>
-        <Link href={"/en/posts"}>Back to posts</Link>
+      <div className={styles.backLink}>
+        <Link href={"/en/posts"}> Back to posts</Link>
       </div>
       <div>
         <h3 className={styles.title}>{data?.title}</h3>
