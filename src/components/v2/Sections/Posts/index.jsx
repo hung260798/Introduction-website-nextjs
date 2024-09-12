@@ -33,39 +33,55 @@ export default async function PostsSection() {
   //     postTime: "11/9/2024",
   //   },
   // ];
+  let rawReponse;
+  let response;
+  let posts = [];
+  let err = null;
 
-  let rawReponse = await fetch(`${postApi}`);
-  let response = await rawReponse.json();
-  const posts = response.data;
+  try {
+    rawReponse = await fetch(`${postApi}`);
+    response = await rawReponse.json();
+    posts = response.data;
+  } catch (error) {
+    err = error;
+    posts = [];
+    console.log(error);
+  }
 
   return (
     <section id="posts" className={styles.root}>
       <SectionHeader title={"posts"} />
       <div className={classNames("container", styles.sectionContent)}>
         <div className="row">
-          {posts
-            .filter((post, index) => index < 3)
-            .map(
-              (
-                { title, content, image: cover, createdAt: postTime, id },
-                index
-              ) => (
-                <div key={id} className={classNames("col-12 col-md-4")}>
-                  <PostItem
-                    id={id}
-                    content={content}
-                    title={title}
-                    cover={cover}
-                    postTime={postTime}
-                  />
-                </div>
+          {posts.length > 0 ? (
+            posts
+              .filter((post, index) => index < 3)
+              .map(
+                (
+                  { title, content, image: cover, createdAt: postTime, id },
+                  index
+                ) => (
+                  <div key={id} className={classNames("col-12 col-md-4")}>
+                    <PostItem
+                      id={id}
+                      content={content}
+                      title={title}
+                      cover={cover}
+                      postTime={postTime}
+                    />
+                  </div>
+                )
               )
-            )}
+          ) : (
+            <span>No post available...</span>
+          )}
         </div>
       </div>
-      <div className={styles.footerDiv}>
-        <Link href={"/en/posts"}>View all posts</Link>
-      </div>
+      {posts.length > 0 && (
+        <div className={styles.footerDiv}>
+          <Link href={"/en/posts"}>View all posts</Link>
+        </div>
+      )}
     </section>
   );
 }

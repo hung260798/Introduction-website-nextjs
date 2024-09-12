@@ -1,20 +1,22 @@
 .background {
-  width: auto;
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   z-index: -2;
   height: 600px;
-  width: 100vw;
+  /* width: 100%; */
+  /* width: 100vw; */
   overflow: hidden;
 }
 
 .background img {
   width: 100%;
-  height: auto;
+  height: 600px;
   opacity: 0;
-  transition: all 0.3s ease-in;
+  transition: all 0.5s ease-in;
   position: absolute;
+  object-fit: cover;
 }
 
 .background img.show {
@@ -26,7 +28,7 @@
   /* background-image: url("/images/home/home1-medium.jpg"); */
   /* min-height: 90vh; */
   height: 600px;
-  width: 100vw;
+  /* width: 100vw; */
   overflow: hidden;
   background-position: 0% 0%;
   background-repeat: no-repeat;
@@ -57,7 +59,7 @@
 }
 
 .title .subtitle {
-  transition: color 0.3s ease-out;
+  transition: color 0.5s ease-in;
 }
 
 .root {
@@ -86,6 +88,7 @@
 
 .root .content {
   text-align: center;
+  padding: 0 3em;
 }
 
 .buttonsDiv {
