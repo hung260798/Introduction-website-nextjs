@@ -23,7 +23,13 @@
 }
 
 .row .coverDiv {
-  flex: 0 0 20%;
+  flex: 1 0 20%;
+}
+
+@media (min-width: 700px) {
+  .row .coverDiv {
+    min-width: 190px;
+  }
 }
 
 .row .contentDiv {

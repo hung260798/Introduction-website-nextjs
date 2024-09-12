@@ -1,29 +1,63 @@
+"use client";
+
+import React from "react";
 import PostItem from "@/components/v2/Items/PostItem";
 import { postApi } from "@/utils/api";
 import styles from "./page.module.css";
+import { useEffect, useState } from "react";
+import Error500 from "@/components/v2/Page/Error500";
+import useSWR from "swr";
+import Loading from "@/components/v2/Loading";
+import Link from "next/link";
+import { useLocale } from "next-intl";
+import SectionHeader from "@/components/v2/SectionHeader";
 
-export default async function Page() {
-  let rawReponse = await fetch(`${postApi}`);
-  let response = await rawReponse.json();
+export default function Page() {
+  const {
+    data: posts,
+    error,
+    isLoading,
+  } = useSWR(postApi, (...args) =>
+    fetch(...args)
+      .then((res) => res.json())
+      .then((response) => response.data)
+  );
+
+  const lang = useLocale();
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return (
+      <div>
+        <Error500 />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.root} id="home">
       <div className={"container"}>
         <div className={styles.container}>
+          <SectionHeader title={"posts"} />
           <ul>
-            {response?.data.map(({ id, title, content, image: cover, createdAt: postTime }) => (
-              <li key={id}>
-                <PostItem
-                  id={id}
-                  cover={cover}
-                  content={content}
-                  title={title}
-                  postTime={postTime}
-                  flex="row"
-                  previewContent
-                />
-              </li>
-            ))}
+            {posts.map(
+              ({ id, title, content, image: cover, createdAt: postTime }) => (
+                <li key={id}>
+                  <PostItem
+                    id={id}
+                    cover={cover}
+                    content={content}
+                    title={title}
+                    postTime={postTime}
+                    flex="row"
+                    previewContent
+                  />
+                </li>
+              )
+            )}
           </ul>
         </div>
       </div>

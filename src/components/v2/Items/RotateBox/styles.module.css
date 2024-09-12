@@ -49,6 +49,15 @@
   font-size: 35px;
 }
 
+@media (max-width: 900px) {
+  .rotateBoxIcon.big {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 25px;
+  }
+}
+
 @media (max-width: 700px) {
   .rotateBoxIcon.big {
     width: 45px;
@@ -91,7 +100,7 @@
 }
 
 .desc {
-  font-size: 0.88em;
+  font-size: 0.88rem;
 }
 
 .vertical {
@@ -103,7 +112,6 @@
   text-align: center;
   margin-bottom: 25px;
 }
-
 
 .rotateLeft > * {
   transform: rotate(-45deg);
