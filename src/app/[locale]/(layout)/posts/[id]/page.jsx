@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import useSWR from "swr";
 import styles from "./page.module.css";
 import { postApi } from "@/utils/api";

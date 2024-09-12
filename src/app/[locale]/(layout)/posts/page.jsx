@@ -4,12 +4,9 @@ import React from "react";
 import PostItem from "@/components/v2/Items/PostItem";
 import { postApi } from "@/utils/api";
 import styles from "./page.module.css";
-import { useEffect, useState } from "react";
 import Error500 from "@/components/v2/Page/Error500";
 import useSWR from "swr";
 import Loading from "@/components/v2/Loading";
-import Link from "next/link";
-import { useLocale } from "next-intl";
 import SectionHeader from "@/components/v2/SectionHeader";
 
 export default function Page() {
@@ -23,7 +20,6 @@ export default function Page() {
       .then((response) => response.data)
   );
 
-  const lang = useLocale();
 
   if (isLoading) {
     return <Loading />;
