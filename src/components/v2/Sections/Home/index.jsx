@@ -5,12 +5,13 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import useNavigation from "@/hooks/navigationHook";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 
 export default function Home() {
   const sectionRef = useNavigation();
   const t = useTranslations("HomePage");
+  const lang = useLocale();
   const goToContact = () => {
     window.location.hash = "contact";
   };
@@ -45,12 +46,12 @@ export default function Home() {
           </div>
           <div className={styles.buttonsDiv}>
             <div>
-              <Link className={styles.btnBlank} href={"/#services"}>
+              <Link className={styles.btnBlank} href={`/${lang}/#services`}>
                 our services
               </Link>
             </div>
             <div>
-              <Link className={styles.btnBlank} href={"/#contact"}>
+              <Link className={styles.btnBlank} href={`/${lang}/#contact`}>
                 get started
               </Link>
             </div>
