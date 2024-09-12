@@ -34,7 +34,8 @@
   display: block;
   padding: 0;
   border-top: 3px solid #363940;
-  font-size: 14px;
+  font-size: 0.92rem;
+  font-weight: 500;
 }
 
 .root a.current,
@@ -83,6 +84,7 @@
   color: #ccc6c6;
   text-transform: uppercase;
   display: block;
+  font-size: 0.92rem;
 }
 
 .vertMenu ul a.current,
@@ -98,8 +100,6 @@
 
 .navToggler {
   display: none;
-  /* height: 56px;  */
-  /* width: 56px; */
   position: relative;
   margin-right: 20px;
 }

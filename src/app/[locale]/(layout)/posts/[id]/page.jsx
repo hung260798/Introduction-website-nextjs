@@ -1,12 +1,23 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { postApi } from "@/utils/api";
+import Error500 from "@/components/v2/Page/Error500";
 
 export default async function Page({ params }) {
   const { id } = params;
-  let rawResponse = await fetch(`${postApi}/${id}`);
-  let post = await rawResponse.json();
-  let { title, content, image: cover, createdAt: postTime } = post.data;
+  let rawResponse;
+  let response;
+  let post;
+  let title, content, cover, postTime;
+  try {
+    rawResponse = await fetch(`${postApi}/${id}`);
+    response = await rawResponse.json();
+    post = response.data;
+    ({ title, content, image: cover, createdAt: postTime } = post);
+  } catch (error) {
+    console.error(error);
+    return <Error500 />;
+  }
 
   return (
     <div className={styles.root}>
@@ -31,7 +42,7 @@ export async function generateStaticParams() {
     let rawReponse = await fetch(`${postApi}`);
     let response = await rawReponse.json();
     console.log(response);
-    return response.data.map((post) => ({ locale:'en', id: `${post.id}` }));
+    return response.data.map((post) => ({ locale: "en", id: `${post.id}` }));
   } catch (error) {
     console.error(error);
     return [];
