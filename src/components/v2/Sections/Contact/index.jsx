@@ -22,6 +22,7 @@ export default function Page() {
     try {
       const headers = new Headers();
       headers.append("Content-Type", "application/json");
+      setSubmitState("submitting");
       const rawResponse = await fetch(`${emailApi}`, {
         method: "POST",
         body: JSON.stringify(data),
@@ -40,7 +41,7 @@ export default function Page() {
   };
 
   useEffect(() => {
-    if (submitState !== "idle") {
+    if (submitState !== "idle" && submitState !== "submitting") {
       setTimeout(() => {
         setSubmitState("idle");
       }, 2000);
@@ -143,6 +144,15 @@ export default function Page() {
         </Alert>
       </Fade>
       {/* )} */}
+      <Fade in={submitState === "submitting"}>
+        <Alert
+          className={classNames(styles.alert)}
+          severity="info"
+          variant="filled"
+        >
+          Sending...
+        </Alert>
+      </Fade>
     </section>
   );
 }
