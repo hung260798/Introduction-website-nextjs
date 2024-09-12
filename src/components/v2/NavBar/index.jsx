@@ -31,7 +31,7 @@ export default function NavBar() {
   const renderItems = items.map(({ href, name }) => (
     <li key={href}>
       <Link
-        href={href}
+        href={`/${lang}${href}`}
         className={classNames({ [styles.current]: href === currentPos.href })}
         onClick={(e) => setShowingVertMenu(false)}
       >
