@@ -50,7 +50,7 @@ export default async function PostsSection() {
                 { title, content, image: cover, createdAt: postTime, id },
                 index
               ) => (
-                <div key={id} className={classNames("col col-md-4")}>
+                <div key={id} className={classNames("col-12 col-md-4")}>
                   <PostItem
                     id={id}
                     content={content}
