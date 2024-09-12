@@ -17,7 +17,8 @@ export default function Page() {
   const t = useTranslations("Contact");
   const elemRef = useNavigation();
   const [submitState, setSubmitState] = useState("idle");
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+
   const onSubmit = async (data) => {
     try {
       const headers = new Headers();
@@ -43,10 +44,11 @@ export default function Page() {
   useEffect(() => {
     if (submitState !== "idle" && submitState !== "submitting") {
       setTimeout(() => {
+        reset({ name:'', surname:'', emailuser:'', content:'' });
         setSubmitState("idle");
       }, 2000);
     }
-  }, [submitState]);
+  }, [submitState, reset]);
 
   return (
     <section
@@ -94,26 +96,34 @@ export default function Page() {
                 type="text"
                 name={"name"}
                 placeholder={"Your name"}
-                {...register("name")}
+                {...register("name", { required: "This field is required" })}
               />
+              {errors.name && <span className={styles.error}>{errors.name.message}</span>}
+              
               <Input
                 type="text"
                 name={"surname"}
                 placeholder={"Your surname"}
-                {...register("surname")}
+                {...register("surname", { required: "This field is required" })}
               />
+              {errors.surname && <span className={styles.error}>{errors.surname.message}</span>}
+
               <Input
                 type="email"
                 name={"emailuser"}
                 placeholder={"Email"}
-                {...register("emailuser")}
+                {...register("emailuser", { required: "This field is required" })}
               />
+              {errors.emailuser && <span className={styles.error}>{errors.emailuser.message}</span>}
+
               <Input
                 type="textarea"
                 name={"content"}
                 placeholder={"Message"}
-                {...register("content")}
+                {...register("content", { required: "This field is required" })}
               />
+              {errors.content && <span className={styles.error}>{errors.content.message}</span>}
+
               <button type="submit" className={classNames(styles.btn)}>
                 Submit
               </button>

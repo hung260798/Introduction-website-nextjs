@@ -7,6 +7,7 @@ import Header from './components/Header';
 import ContentPost from './components/ContentPost';
 import ContentComment from './components/ContentComment';
 import Sidebar from './components/Sidebar';
+import Loading from '@/components/v2/Loading';
 
 const AdminPage = () => {
     const [activeSection, setActiveSection] = useState('managePosts');
@@ -78,8 +79,11 @@ const AdminPage = () => {
     const [filteredPosts, setFilteredPosts] = useState([]);
     const [filteredComments, setFilteredComments] = useState([]);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
+    const [showConfirmModalComment, setShowConfirmModalComment] = useState(false);
     const [postsToDelete, setPostsToDelete] = useState([]);
     const [selectedPosts, setSelectedPosts] = useState(new Set());
+    const [commentsToDelete, setCommentsToDelete] = useState([]);
+    const [selectedComments, setSelectedComments] = useState(new Set());
     const [modalOpen, setModalOpen] = useState(false);
     const [currentPost, setCurrentPost] = useState({ title: '', image: '', content: '', createdAt: '' });
     const [modalType, setModalType] = useState(''); // 'add', 'edit', 'view'
@@ -134,6 +138,11 @@ const AdminPage = () => {
         if (activeSection === 'checkComment') {
             fetchComments();
         }
+
+        const interValid = setInterval(() => {
+            fetchComments();
+        }, 5000);
+        return () => clearInterval(interValid);
     }, []);
 
     useEffect(() => {
@@ -143,10 +152,15 @@ const AdminPage = () => {
         if (activeSection === 'managePosts') {
             fetchPosts();
         }
+
+        const interValid = setInterval(() => {
+            fetchComments();
+        }, 5000);
+        return () => clearInterval(interValid);
     }, [activeSection]);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div><Loading></Loading></div>;
     }
 
     if (error) {
@@ -194,6 +208,10 @@ const AdminPage = () => {
                 return (
                     <ContentComment
                         comments={filteredComments.length > 0 ? filteredComments : []}
+                        handleDeleteComments={handleDeleteComments}
+                        handleDeleteMultipleComments={handleDeleteMultipleComments}
+                        selectedComments={selectedComments}
+                        setSelectedComments={setSelectedComments}
                     />
                 );
             default:
@@ -227,7 +245,7 @@ const AdminPage = () => {
 
     const validatePostData = (postData) => {
         const { title, content, image } = postData;
-    
+
         if (!title || title.trim() === '') {
             return 'Tiêu đề không được để trống.';
         }
@@ -237,7 +255,7 @@ const AdminPage = () => {
         if (!image || image.trim() === '') {
             return 'Hình ảnh không được để trống.';
         }
-    
+
         return
     };
 
@@ -308,11 +326,21 @@ const AdminPage = () => {
         setShowConfirmModal(true);
     };
 
+    const handleDeleteComments = (id) => {
+        setCommentsToDelete([id]);
+        setShowConfirmModalComment(true);
+    };
+
+    const handleDeleteMultipleComments = () => {
+        setCommentsToDelete(Array.from(selectedComments));
+        setShowConfirmModalComment(true);
+    };
+
     const confirmDelete = async () => {
         try {
             // Gọi API để xóa các bài viết
             await Promise.all(
-                postsToDelete.map(id => 
+                postsToDelete.map(id =>
                     axios.delete(`http://localhost:5167/api/bai-viets/${id}`)
                 )
             );
@@ -331,10 +359,32 @@ const AdminPage = () => {
         // setSelectedPosts(new Set());
         // setShowConfirmModal(false);
     };
+    const confirmDeleteComment = async () => {
+        try {
+            // Gọi API để xóa các bài viết
+            await Promise.all(
+                commentsToDelete.map(id =>
+                    axios.delete(`http://localhost:5167/api/email/${id}`)
+                )
+            );
+            setComments(comments.filter(comment => !commentsToDelete.includes(comment.id)));
+            setFilteredComments(filteredComments.filter(comment => !commentsToDelete.includes(comment.id)));
+            setSelectedComments(new Set());
+        } catch (error) {
+            console.error('Error deleting comment:', error);
+        } finally {
+            setCommentsToDelete([]);
+            setShowConfirmModalComment(false);
+        }
+    };
 
     const cancelDelete = () => {
         setPostsToDelete([]);
         setShowConfirmModal(false);
+    };
+    const cancelDeleteComment = () => {
+        setCommentsToDelete([]);
+        setShowConfirmModalComment(false);
     };
 
     const handleReloadPosts = () => {
@@ -397,6 +447,9 @@ const AdminPage = () => {
                                     Tìm kiếm
                                 </button>
                                 <button onClick={handleReloadComments} className={`${styles.button} ${styles.buttonPrimary} ${styles.buttonReload}`}>Reload</button>
+                                {selectedComments.size > 0 && (
+                                    <button onClick={handleDeleteMultipleComments} className={`${styles.button} ${styles.buttonDanger}`}>Xóa mục đã chọn</button>
+                                )}
                             </div>
                         </div>
                     )}
@@ -436,7 +489,9 @@ const AdminPage = () => {
             <Modal open={modalOpen && modalType === 'view'} onClose={closeModal}>
                 <div className={styles.modalContentView}>
                     <h2 className={styles.modalTitleView}>{currentPost.title}</h2>
-                    <img src={currentPost.image} alt={currentPost.title} className={styles.modalImageView} />
+                    <div className={styles.modalImageViewWrapper}>
+                        <img src={currentPost.image} alt={currentPost.title} className={styles.modalImageView} />
+                    </div>
                     <div className={styles.modalContentTextViewWrapper}>{formatContent(currentPost.content)}</div>
                     <p className={styles.modalTimestampView}>Thời gian tạo: {currentPost.createdAt}</p>
                     <div className={styles.modalButtonGroup}>
@@ -454,6 +509,19 @@ const AdminPage = () => {
                         <div className={styles.modalButtonGroup}>
                             <button onClick={cancelDelete} className={`${styles.modalButton} ${styles.modalButtonSecondary}`}>Hủy</button>
                             <button onClick={confirmDelete} className={`${styles.modalButton} ${styles.modalButtonPrimary} ${styles.modalButtonPrimaryDel}`}>Đồng Ý</button>
+                        </div>
+                    </div>
+                </Modal>
+            )}
+            {/* Modal Xác Nhận Xóa Comment */}
+            {showConfirmModalComment && (
+                <Modal open={showConfirmModalComment} onClose={cancelDeleteComment}>
+                    <div className={styles.modalContent}>
+                        <h2>Xác Nhận Xóa</h2>
+                        <p>Bạn có chắc chắn muốn xóa không?</p>
+                        <div className={styles.modalButtonGroup}>
+                            <button onClick={cancelDeleteComment} className={`${styles.modalButton} ${styles.modalButtonSecondary}`}>Hủy</button>
+                            <button onClick={confirmDeleteComment} className={`${styles.modalButton} ${styles.modalButtonPrimary} ${styles.modalButtonPrimaryDel}`}>Đồng Ý</button>
                         </div>
                     </div>
                 </Modal>

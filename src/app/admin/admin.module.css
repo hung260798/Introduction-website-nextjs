@@ -8,6 +8,7 @@
 .mainContent {
     display: flex;
     flex: 1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .header {
@@ -19,6 +20,7 @@
     border-radius: 8px;
     display: flex;
     align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .headerContent {
@@ -55,6 +57,7 @@
     border-radius: 8px 0 0 8px;
     transition: transform 0.3s ease;
     z-index: 1000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .sidebar.sidebarOpen {
@@ -192,6 +195,8 @@
 .table td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
+    overflow-wrap: break-word;
+    max-width: 400px;
 }
 
 .buttonTableGroup {
@@ -486,8 +491,13 @@
     text-align: center;
 }
 
+.modalImageViewWrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .modalImageView {
-    width: 100%;
+    width: 50%;
     height: auto;
     border-radius: 5px;
     margin-bottom: 15px;

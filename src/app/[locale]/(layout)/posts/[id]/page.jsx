@@ -31,6 +31,12 @@ export default function Page({ params }) {
     );
   }
 
+  const formatContent = (content) => {
+    // Thay thế ký tự xuống dòng bằng <br />
+    const formattedContent = content.replace(/\r?\n/g, '<br />');
+    return <div dangerouslySetInnerHTML={{ __html: formattedContent }} />;
+};
+
   return (
     <div className={classNames(styles.root, "container")}>
       <div className={styles.backLink}>
@@ -51,7 +57,7 @@ export default function Page({ params }) {
           className={styles.coverImg}
         />
       </div>
-      <p className={styles.content}>{data?.content}</p>
+      <p className={styles.content}>{formatContent(data?.content)}</p>
     </div>
   );
 }
