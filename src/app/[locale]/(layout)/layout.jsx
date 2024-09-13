@@ -1,5 +1,5 @@
 import React from "react";
-import { default as ClientWrapper } from "@/components/v2/PageWrapper";
+import { default as ClientWrapper } from "@/components/PageWrapper";
 
 export default function Layout({ children }) {
   return (

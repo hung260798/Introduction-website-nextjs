@@ -7,7 +7,7 @@ import Header from './components/Header';
 import ContentPost from './components/ContentPost';
 import ContentComment from './components/ContentComment';
 import Sidebar from './components/Sidebar';
-import Loading from '@/components/v2/Loading';
+import Loading from '@/components/Loading';
 
 const AdminPage = () => {
     const [activeSection, setActiveSection] = useState('managePosts');
