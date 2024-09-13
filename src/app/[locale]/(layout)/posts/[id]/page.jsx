@@ -62,18 +62,18 @@ export default function Page({ params }) {
   );
 }
 
-// export async function generateStaticParams() {
-//   try {
-//     let rawReponse = await fetch(`${postApi}`);
-//     let response = await rawReponse.json();
-//     console.log(response);
-//     return response.data.map((post) => ({ locale: "en", id: `${post.id}` }));
-//   } catch (error) {
-//     console.error(error);
-//     return [];
-//   }
-// }
+export async function generateStaticParams() {
+  try {
+    let rawReponse = await fetch(`${postApi}`);
+    let response = await rawReponse.json();
+    console.log(response);
+    return response.data.map((post) => ({ locale: "en", id: `${post.id}` }));
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
 
-// export const revalidate = 60;
+export const revalidate = 60;
 
-// export const dynamicParams = true;
+export const dynamicParams = true;
