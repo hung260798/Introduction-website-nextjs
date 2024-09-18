@@ -1,13 +1,14 @@
 {
   "Menu": [
-        "Home",
-        "About",
-        "Services",
-        "Technologies",
-        "Customers",
-        "Team",
-        "Contact"
-    ],
+    "Home",
+    "About",
+    "Services",
+    "Technologies",
+    "Customers",
+    "Team",
+    "Contact",
+    "Posts"
+  ],
   "HomePage": {
     "title": "We transform businesses of most major sectors with powerful and adaptable digital solutions that satisfy the needs of today.",
     "links": ["our services", "get started"]
@@ -109,5 +110,12 @@
       },
       "submitButton": "submit"
     }
+  },
+  "Posts": {
+    "title": "Posts",
+    "messages": {
+      "noPost": "No post avaiable"
+    },
+    "viewAll": "View all posts"
   }
 }

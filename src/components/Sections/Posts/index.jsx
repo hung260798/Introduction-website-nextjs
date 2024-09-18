@@ -2,7 +2,7 @@
 
 import { usePosts } from "@/hooks/postHook";
 import classNames from "classnames";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import PostItem from "../../Items/PostItem";
 import SectionHeader from "../../SectionHeader";
@@ -10,10 +10,11 @@ import styles from "./styles.module.css";
 import Loading from "@/components/Loading";
 
 export default function PostsSection() {
+  const t = useTranslations("Posts");
   const lang = useLocale();
   const { data, error, isLoading } = usePosts();
   const posts = data?.data;
-  let innerContent = "No post available";
+  let innerContent = t("messages.noPost");
   if (!posts) {
     if (isLoading) innerContent = <Loading />;
     // if (error) return "Error";
@@ -40,18 +41,18 @@ export default function PostsSection() {
             )
           )
       ) : (
-        <span>No post available...</span>
+        <span>{t("messages.noPost")}</span>
       );
   }
 
   return (
     <section id="posts" className={styles.root}>
-      <SectionHeader title={"posts"} />
+      <SectionHeader title={t("title")} />
       <div className={classNames("container", styles.sectionContent)}>
         <div className="row">{innerContent}</div>
       </div>
       <div className={styles.footerDiv}>
-        <Link href={`/${lang}/listpost`}>View all posts</Link>
+        <Link href={`/${lang}/listpost`}>{t("viewAll")}</Link>
       </div>
     </section>
   );
