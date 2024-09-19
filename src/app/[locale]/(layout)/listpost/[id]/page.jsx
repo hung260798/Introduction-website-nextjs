@@ -3,6 +3,7 @@
 import Loading from "@/components/Loading";
 import { usePost } from "@/hooks/postHook";
 import Link from "next/link";
+import styles from "./page.module.css";
 
 export default function PostDetail({ params }) {
   const { id, locale } = params;
@@ -24,13 +25,9 @@ export default function PostDetail({ params }) {
       <div className="row">
         <div className="col-12 position-relative p-3 border rounded">
           <p className="position-absolute top-0 end-0 text-muted small">
-            Posted at: {postTime}
+            Posted at: {new Date(postTime).toLocaleString()}
           </p>
-          <div className="text-center my-3">
-            <img src={cover} alt="post cover" className="img-fluid" />
-          </div>
-          <h3 className="text-start">{title}</h3>
-          <p>{content}</p>
+          <div className={styles.postContentTextView} dangerouslySetInnerHTML={{ __html: content }} />
         </div>
       </div>
     </div>

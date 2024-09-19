@@ -52,7 +52,7 @@ const ContentPost = ({ posts, handleDelete, handleDeleteMultiple, openEditModal,
                                             {post.content}
                                         </div>
                                     </td>
-                                    <td>{post.createdAt}</td>
+                                    <td>{new Date(post.createdAt).toLocaleString()}</td>
                                     <td className={styles.buttonTableGroup}>
                                         <button onClick={() => openEditModal(post)} className={`${styles.button} ${styles.buttonPrimary}`}>Sửa</button>
                                         <button onClick={() => handleDelete(post.id)} className={`${styles.button} ${styles.buttonDanger}`}>Xóa</button>

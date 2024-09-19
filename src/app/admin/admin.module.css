@@ -20,7 +20,7 @@
     border-radius: 8px;
     display: flex;
     align-items: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .headerContent {
@@ -57,7 +57,7 @@
     border-radius: 8px 0 0 8px;
     transition: transform 0.3s ease;
     z-index: 1000;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .sidebar.sidebarOpen {
@@ -111,6 +111,7 @@
     background-color: #b2b2b2;
     transform: scale(1.05);
     cursor: pointer;
+    font-weight: bold;
 }
 
 .activeSidebarItem {
@@ -211,6 +212,11 @@
 
 .innerContent {
     max-height: 200px;
+    overflow-y: hidden;
+    transition: overflow-y 0.3s;
+}
+
+.innerContent:hover {
     overflow-y: auto;
 }
 
@@ -334,6 +340,7 @@
     outline: none;
     width: 700px;
     height: auto;
+    max-height: 85%;
     max-width: 90%;
     display: flex;
     flex-direction: column;
@@ -477,6 +484,7 @@
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     max-width: 600px;
+    max-height: 85%;
     margin: auto;
     position: relative;
     top: 50%;
@@ -506,15 +514,27 @@
 .modalContentTextView {
     margin: 4px 0;
     font-size: 13px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.5;
     text-align: justify;
+}
+
+.modalContentTextView img {
+    max-width: 80%;
+    height: auto; 
+    display: block; 
+    margin: 0 auto;
 }
 
 .modalContentTextViewWrapper {
     padding: 0 3px;
     margin-bottom: 15px;
-    max-height: 300px;
+    max-height: 510px;
+    overflow-y: hidden;
+    transition: overflow-y 0.3s;
+}
+
+.modalContentTextViewWrapper:hover {
     overflow-y: auto;
 }
 
@@ -546,3 +566,48 @@
     width: 100%;
     margin: 15px 0;
 }
+
+.editorContainer {
+    margin: 12px 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-height: 500px;
+    overflow: hidden;
+}
+
+.editor {
+    flex: 1;
+    overflow-y: hidden;
+    transition: overflow-y 0.3s;
+}
+
+.editor img {
+    max-width: 80%;
+    height: auto;   
+    display: block; 
+    margin: 0 auto;
+}
+
+.editor:hover {
+    overflow-y: auto;
+}
+
+.editor::-webkit-scrollbar {
+    width: 4px;
+}
+
+.editor:-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 2px;
+}
+
+.editor::-webkit-scrollbar-thumb {
+    background: #dfdfdf;
+    border-radius: 2px;
+}
+
+.editor::-webkit-scrollbar-thumb:hover {
+    background: #cccccc;
+}
+

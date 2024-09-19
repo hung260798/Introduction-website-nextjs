@@ -1,0 +1,15 @@
+.postContentTextView {
+    margin: 4px 0;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.postContentTextView img {
+    max-width: 80%;
+    height: auto; 
+    display: block; 
+    margin: 0 auto;
+}
+

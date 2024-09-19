@@ -54,7 +54,7 @@ const ContentComment = ({ comments, handleDeleteComments, handleDeleteMultipleCo
                                             {comment.content}
                                         </div>
                                     </td>
-                                    <td>{comment.createdAt}</td>
+                                    <td>{new Date(comment.createdAt).toLocaleString()}</td>
                                     <td className={styles.buttonTableGroup}>
                                         <button onClick={() => handleDeleteComments(comment.id)} className={`${styles.button} ${styles.buttonDanger}`}>Xóa</button>
                                     </td>

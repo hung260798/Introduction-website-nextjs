@@ -8,6 +8,8 @@ import ContentPost from './components/ContentPost';
 import ContentComment from './components/ContentComment';
 import Sidebar from './components/Sidebar';
 import Loading from '@/components/Loading';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const AdminPage = () => {
     const [activeSection, setActiveSection] = useState('managePosts');
@@ -463,7 +465,29 @@ const AdminPage = () => {
                     <h2 className={styles.modalTitle}>Thêm Bài Viết</h2>
                     <input type="text" value={currentPost.title} onChange={(e) => setCurrentPost({ ...currentPost, title: e.target.value })} placeholder="Tiêu đề" className={styles.input} />
                     <input type="text" value={currentPost.image} onChange={(e) => setCurrentPost({ ...currentPost, image: e.target.value })} placeholder="Đường link ảnh" className={styles.input} />
-                    <textarea value={currentPost.content} onChange={(e) => setCurrentPost({ ...currentPost, content: e.target.value })} placeholder="Nội dung bài viết" className={styles.textarea} />
+                    <div className={styles.editorContainer}>
+                        <div className={styles.editor}>
+                            <CKEditor
+                                editor={ClassicEditor}
+                                data={currentPost.content}
+                                config={{
+                                    toolbar: [
+                                        'heading', '|',
+                                        'bold', 'italic', '|',
+                                        'bulletedList', 'numberedList', '|',
+                                        'blockQuote', 'insertTable', '|',
+                                        'undo', 'redo'
+                                    ]
+                                }}
+                                onChange={(event, editor) => {
+                                    const data = editor.getData();
+                                    setCurrentPost({ ...currentPost, content: data });
+                                }}
+                            />
+                        </div>
+                    </div>
+
+                    {/* <textarea value={currentPost.content} onChange={(e) => setCurrentPost({ ...currentPost, content: e.target.value })} placeholder="Nội dung bài viết" className={styles.textarea} /> */}
                     <div className={styles.modalButtonGroup}>
                         <button onClick={closeModal} className={`${styles.modalButton} ${styles.modalButtonSecondary}`}>Hủy</button>
                         <button onClick={handleAdd} className={`${styles.modalButton} ${styles.modalButtonPrimary}`}>Thêm</button>
@@ -477,7 +501,28 @@ const AdminPage = () => {
                     <h2 className={styles.modalTitle}>Sửa Bài Viết</h2>
                     <input type="text" value={currentPost.title} onChange={(e) => setCurrentPost({ ...currentPost, title: e.target.value })} placeholder="Tiêu đề" className={styles.input} />
                     <input type="text" value={currentPost.image} onChange={(e) => setCurrentPost({ ...currentPost, image: e.target.value })} placeholder="Ảnh" className={styles.input} />
-                    <textarea value={currentPost.content} onChange={(e) => setCurrentPost({ ...currentPost, content: e.target.value })} placeholder="Nội dung bài viết" className={styles.textarea} />
+                    <div className={styles.editorContainer}>
+                        <div className={styles.editor}>
+                            <CKEditor
+                                editor={ClassicEditor}
+                                data={currentPost.content}
+                                config={{
+                                    toolbar: [
+                                        'heading', '|',
+                                        'bold', 'italic', '|',
+                                        'bulletedList', 'numberedList', '|',
+                                        'blockQuote', 'insertTable', '|',
+                                        'undo', 'redo'
+                                    ],
+                                }}
+                                onChange={(event, editor) => {
+                                    const data = editor.getData();
+                                    setCurrentPost({ ...currentPost, content: data });
+                                }}
+                            />
+                        </div>
+                    </div>
+                    {/* <textarea value={currentPost.content} onChange={(e) => setCurrentPost({ ...currentPost, content: e.target.value })} placeholder="Nội dung bài viết" className={styles.textarea} /> */}
                     <div className={styles.modalButtonGroup}>
                         <button onClick={closeModal} className={`${styles.modalButton} ${styles.modalButtonSecondary}`}>Hủy</button>
                         <button onClick={handleSave} className={`${styles.modalButton} ${styles.modalButtonPrimary}`}>Lưu</button>
@@ -488,12 +533,12 @@ const AdminPage = () => {
             {/* Modal Xem Bài Viết */}
             <Modal open={modalOpen && modalType === 'view'} onClose={closeModal}>
                 <div className={styles.modalContentView}>
-                    <h2 className={styles.modalTitleView}>{currentPost.title}</h2>
+                    {/* <h2 className={styles.modalTitleView}>{currentPost.title}</h2>
                     <div className={styles.modalImageViewWrapper}>
                         <img src={currentPost.image} alt={currentPost.title} className={styles.modalImageView} />
-                    </div>
-                    <div className={styles.modalContentTextViewWrapper}>{formatContent(currentPost.content)}</div>
-                    <p className={styles.modalTimestampView}>Thời gian tạo: {currentPost.createdAt}</p>
+                    </div> */}
+                    <div className={styles.modalContentTextViewWrapper}><div className={styles.modalContentTextView} dangerouslySetInnerHTML={{ __html: currentPost.content }} /></div>
+                    <p className={styles.modalTimestampView}>Thời gian tạo: {new Date(currentPost.createdAt).toLocaleString()}</p>
                     <div className={styles.modalButtonGroup}>
                         <button onClick={closeModal} className={`${styles.modalButton} ${styles.modalButtonPrimary} ${styles.modalButtonView}`}>Đóng</button>
                     </div>

@@ -16,6 +16,11 @@ export default function PostPage({ params: { locale } }) {
     return "No post";
   }
 
+  const stripHtml = (html) => {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    return doc.body.innerText || "";
+  };
+
   return (
     <div>
       <h1 className={styles.h1}>post list</h1>
@@ -34,8 +39,8 @@ export default function PostPage({ params: { locale } }) {
                   {post.title}
                 </Link>
               </h2>
-              <p className={styles.post_date}>Posted at: {post.createdAt}</p>
-              <p>{`${post.content}`.slice(0, 200)}...</p>
+              <p className={styles.post_date}>Posted at: {new Date(post.createdAt).toLocaleString()}</p>
+              <p>{stripHtml(post.content).slice(0, 200)}...</p>
             </div>
           </div>
         ))}
